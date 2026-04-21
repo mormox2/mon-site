@@ -23,7 +23,13 @@ const translations = {
         servicesTitle: "Services | خدماتنا", services: [ { icon: "🦷", title: "Implantologie", desc: "Pose d'implants dentaires de marques internationales." }, { icon: "💻", title: "CAD/CAM exocad", desc: "Conception numérique ultra-précise de vos couronnes." }, { icon: "✨", title: "Esthétique", desc: "Facettes E-max et blanchiment pour un sourire parfait." }, { icon: "📏", title: "Orthodontie", desc: "Alignement dentaire pour enfants et adultes." }, { icon: "🛡️", title: "Parodontologie", desc: "Traitement des gencives et utilisation du PRF." }, { icon: "🏥", title: "Urgences", desc: "Prise en charge rapide des douleurs dentaires." } ],
         testimonialsTitle: "Avis Patients | آراء المرضى", googleRatingLabel: "Note Google", reviewsCountLabel: "Avis Vérifiés", satisfactionLabel: "Satisfaction", gmbLink: "📍 Voir tous les avis sur Google Maps",
         testimonials: [ { stars: "⭐⭐⭐⭐⭐", text: "Excellent accueil et travail de très haute qualité.", author: "Thana R.", role: "Patiente depuis 11 ans" }, { stars: "⭐⭐⭐⭐⭐", text: "Très satisfait des implants dentaires. Explications claires et technologie CAD/CAM.", author: "Mohamed K.", role: "Patient implantatologie" }, { stars: "⭐⭐⭐⭐⭐", text: "Cabinet moderne et professionnel.", author: "Aïda M.", role: "Traitement esthétique" } ],
-        galleryTitle: "Galerie Avant/Après | معرض الصور", sliderBefore: "AVANT", sliderAfter: "APRÈS", galleryTitles: ["Implants Dentaires", "Facettes Esthétiques", "Orthodontie Invisible", "Blanchiment Dentaire"],
+        galleryTitle: "Galerie Photos | معرض الصور", galleryPreviewCount: 4, galleryShowMore: "Voir toute la galerie", galleryShowLess: "Réduire", galleryPhotos: [
+            { src: "images/gallery/fr/facettes-hollywood.jpg", alt: "Le Sourire Hollywood – Facettes dentaires avant et après", caption: "Facettes Hollywood" },
+            { src: "images/gallery/fr/guerison-gencives.jpg", alt: "Parcours de guérison des gencives – Avant, pendant et après le traitement", caption: "Soin des Gencives" },
+            { src: "images/gallery/fr/implant-vs-bridge.jpg", alt: "Comparaison implant dentaire vs bridge traditionnel", caption: "Implant vs Bridge" },
+            { src: "images/gallery/fr/blanchiment-pro.jpg", alt: "Blanchiment dentaire professionnel – Résultats immédiats", caption: "Blanchiment Pro" },
+            { src: "images/gallery/fr/hygiene-dentaire.jpg", alt: "La méthode idéale pour prendre soin de vos dents", caption: "Hygiène Dentaire" }
+        ],
         videosTitle: "Vidéos | فيديوهات", blogTitle: "Actualités & Conseils | أخبار ونصائح",
         blogPosts: [ 
             { id: "p1", date: "31 Mars 2026", title: "Pourquoi choisir les implants dentaires ?", desc: "Les avantages des implants par rapport aux prothèses classiques.", content: "<p>Perdre une dent peut être une expérience difficile, mais les implants dentaires offrent aujourd'hui une solution durable, esthétique et très confortable. Contrairement aux appareils amovibles (souvent appelés dentiers), l'implant est une petite racine artificielle en titane recouverte d'une couronne, ancrée de manière fixe.</p><h4 style='margin-top:20px;margin-bottom:10px;font-size:1.1rem;'>Pourquoi les choisir ?</h4><ul style='margin-left:20px; margin-bottom:20px;'><li><strong>Confort naturel :</strong> Ils se comportent comme de vraies dents. Vous pouvez manger, croquer et parler sans aucune gêne.</li><li><strong>Préservation de l'os :</strong> En remplaçant la racine naturelle, l'implant stimule la mâchoire et empêche la perte osseuse.</li><li><strong>Protection des autres dents :</strong> Contrairement au bridge classique, il n'est pas nécessaire de limer les dents saines voisines.</li><li><strong>Longévité :</strong> Avec une bonne hygiène professionnelle et un brossage quotidien, un implant peut durer toute une vie.</li></ul><p>N'hésitez pas à en parler au Dr Rtimi lors de votre prochaine consultation pour un bilan personnalisé.</p>" }, 
@@ -83,7 +89,13 @@ const translations = {
         servicesTitle: "Our Services", services: [ { icon: "🦷", title: "Implantology", desc: "Placement of international brand dental implants." }, { icon: "💻", title: "CAD/CAM exocad", desc: "Ultra-precise digital design of your crowns." }, { icon: "✨", title: "Cosmetics", desc: "E-max veneers and whitening for a perfect smile." }, { icon: "📏", title: "Orthodontics", desc: "Dental alignment for children and adults." }, { icon: "🛡️", title: "Periodontics", desc: "Gum treatment and use of PRF." }, { icon: "🏥", title: "Emergencies", desc: "Fast management of dental pain." } ],
         testimonialsTitle: "Patient Reviews", googleRatingLabel: "Google Rating", reviewsCountLabel: "Verified Reviews", satisfactionLabel: "Satisfaction", gmbLink: "📍 See all reviews on Google Maps",
         testimonials: [ { stars: "⭐⭐⭐⭐⭐", text: "Excellent reception and very high quality work.", author: "Thana R.", role: "Patient for 11 years" }, { stars: "⭐⭐⭐⭐⭐", text: "Very satisfied with the dental implants. Clear explanations.", author: "Mohamed K.", role: "Implantology patient" }, { stars: "⭐⭐⭐⭐⭐", text: "Modern and professional clinic.", author: "Aïda M.", role: "Cosmetic treatment" } ],
-        galleryTitle: "Before/After Gallery", sliderBefore: "BEFORE", sliderAfter: "AFTER", galleryTitles: ["Dental Implants", "Cosmetic Veneers", "Invisible Orthodontics", "Teeth Whitening"],
+        galleryTitle: "Photo Gallery", galleryPreviewCount: 4, galleryShowMore: "See full gallery", galleryShowLess: "Show less", galleryPhotos: [
+            { src: "images/gallery/fr/facettes-hollywood.jpg", alt: "Hollywood Smile – Dental veneers before and after", caption: "Hollywood Veneers" },
+            { src: "images/gallery/fr/guerison-gencives.jpg", alt: "Gum healing journey – Before, during and after treatment", caption: "Gum Care" },
+            { src: "images/gallery/fr/implant-vs-bridge.jpg", alt: "Dental implant vs traditional bridge comparison", caption: "Implant vs Bridge" },
+            { src: "images/gallery/fr/blanchiment-pro.jpg", alt: "Professional teeth whitening – Immediate results", caption: "Pro Whitening" },
+            { src: "images/gallery/fr/hygiene-dentaire.jpg", alt: "The ideal method for taking care of your teeth", caption: "Oral Hygiene" }
+        ],
         videosTitle: "Videos", blogTitle: "News & Tips",
         blogPosts: [ 
             { id: "p1", date: "March 31, 2026", title: "Why choose dental implants?", desc: "The advantages of implants over traditional dentures.", content: "<p>Losing a tooth can be a difficult experience, but dental implants offer a durable, aesthetic, and highly comfortable solution today. Unlike removable appliances (often called dentures), an implant is a small titanium artificial root anchored directly into your jaw.</p><h4 style='margin-top:20px;margin-bottom:10px;font-size:1.1rem;'>Why choose them?</h4><ul style='margin-left:20px; margin-bottom:20px;'><li><strong>Natural comfort:</strong> They feel exactly like real teeth. You can eat, bite, and speak without any discomfort or slipping fear.</li><li><strong>Bone preservation:</strong> By replacing the natural root, the implant stimulates the jaw and prevents bone loss.</li><li><strong>Protects neighboring teeth:</strong> Unlike a traditional bridge, there is no need to file down healthy adjacent teeth.</li><li><strong>Exceptional longevity:</strong> With good oral hygiene and regular visits, an implant can last a lifetime!</li></ul><p>Feel free to discuss it with Dr. Rtimi during your next consultation for a personalized assessment.</p>" }, 
@@ -143,7 +155,13 @@ const translations = {
         servicesTitle: "خدماتنا | Services", services: [ { icon: "🦷", title: "زراعة الأسنان", desc: "زراعة أسنان من علامات تجارية عالمية." }, { icon: "💻", title: "CAD/CAM exocad", desc: "تصميم رقمي فائق الدقة لتيجان الأسنان." }, { icon: "✨", title: "طب الأسنان التجميلي", desc: "قشور إيماكس وتقوية الأسنان لابتسامة مثالية." }, { icon: "📏", title: "تقويم الأسنان", desc: "محاذاة الأسنان للأطفال والبالغين." }, { icon: "🛡️", title: "علاج اللثة", desc: "علاج اللثة واستخدام PRF." }, { icon: "🏥", title: "حالات الطوارئ", desc: "معالجة سريعة لآلام الأسنان." } ],
         testimonialsTitle: "آراء المرضى | Avis Patients", googleRatingLabel: "تقييم جوجل", reviewsCountLabel: "آراء موثقة", satisfactionLabel: "رضا", gmbLink: "📍 عرض جميع الآراء على خرائط جوجل",
         testimonials: [ { stars: "⭐⭐⭐⭐⭐", text: "استقبال ممتاز وعمل بجودة عالية جدًا.", author: "فاطمة ب.", role: "مريضة منذ 3 سنوات" }, { stars: "⭐⭐⭐⭐⭐", text: "راضٍ جدًا عن زراعة الأسنان. شروحات واضحة وتقنية CAD/CAM.", author: "محمد ك.", role: "مريض زراعة أسنان" }, { stars: "⭐⭐⭐⭐⭐", text: "عيادة حديثة ومهنية.", author: "عائشة م.", role: "علاج تجميلي" } ],
-        galleryTitle: "معرض الصور قبل/بعد", sliderBefore: "قبل", sliderAfter: "بعد", galleryTitles: ["زراعة الأسنان", "القشور التجميلية", "تقويم الأسنان الشفاف", "تبييض الأسنان"],
+        galleryTitle: "معرض الصور", galleryPreviewCount: 4, galleryShowMore: "عرض كل المعرض", galleryShowLess: "عرض أقل", galleryPhotos: [
+            { src: "images/gallery/fr/facettes-hollywood.jpg", alt: "ابتسامة هوليوود – قشور الأسنان قبل وبعد", caption: "قشور هوليوود" },
+            { src: "images/gallery/fr/guerison-gencives.jpg", alt: "مسار شفاء اللثة – قبل وأثناء وبعد العلاج", caption: "علاج اللثة" },
+            { src: "images/gallery/fr/implant-vs-bridge.jpg", alt: "مقارنة زراعة الأسنان مع الجسر التقليدي", caption: "زراعة مقابل جسر" },
+            { src: "images/gallery/fr/blanchiment-pro.jpg", alt: "تبييض الأسنان الاحترافي – نتائج فورية", caption: "تبييض احترافي" },
+            { src: "images/gallery/fr/hygiene-dentaire.jpg", alt: "الطريقة المثالية للعناية بأسنانك", caption: "العناية بالأسنان" }
+        ],
         videosTitle: "فيديوهات | Vidéos", blogTitle: "أخبار ونصائح | Actualités",
         blogPosts: [ 
             { id: "p1", date: "31 مارس 2026", title: "لماذا تختار زراعة الأسنان؟", desc: "مزايا الزراعة مقارنة بالأطراف الاصطناعية التقليدية.", content: "<p>فقدان السن يمكن أن يكون تجربة صعبة، ولكن زراعة الأسنان تقدم اليوم حلاً دائمًا وجماليًا ومريحًا للغاية. على عكس الأجهزة القابلة للإزالة (أطقم الأسنان)، فإن الزرعة عبارة عن جذر صناعي صغير من التيتانيوم يتم تثبيته مباشرة في عظم الفك وتغطيته بتاج.</p><h4 style='margin-top:20px;margin-bottom:10px;font-size:1.1rem;'>لماذا تختارها؟</h4><ul style='margin-right:20px; margin-bottom:20px;'><li><strong>راحة طبيعية:</strong> تعمل تمامًا مثل الأسنان الحقيقية. يمكنك الأكل والمضغ والتحدث دون أي إزعاج.</li><li><strong>الحفاظ على العظم:</strong> من خلال استبدال الجذر الطبيعي، تقوم الزرعة بتحفيز الفك وتمنع فقدان العظام.</li><li><strong>حماية الأسنان المجاورة:</strong> على عكس الجسر التقليدي، ليست هناك حاجة لنحت الأسنان السليمة المجاورة لتركيب زرعة.</li><li><strong>طول العمر:</strong> مع نظافة الفم الجيدة والزيارات المنتظمة للعيادة، يمكن أن تدوم الزرعة مدى الحياة.</li></ul><p>لا تتردد في التحدث مع الدكتور رتيمي خلال استشارتك القادمة للحصول على تقييم شخصي.</p>" }, 
@@ -216,7 +234,7 @@ const pageLoadTime = Date.now();
 
 function isSpamSubmission(form) {
     // 1. Vérification du honeypot (doit être vide)
-    const honeypot = form.querySelector('input[name="website"], input[name="website2"]');
+    const honeypot = form.querySelector('input[name="website2"], input[name="website3"]');
     if (honeypot && honeypot.value.trim() !== '') {
         console.warn('Soumission bloquée : honeypot rempli');
         return true;
@@ -379,11 +397,60 @@ function setLanguage(lang) {
     </div>`;
     }).join(''));
 
-    // Sliders labels
-    document.querySelectorAll('.slider-label.before').forEach(l => l.innerText = t.sliderBefore);
-    document.querySelectorAll('.slider-label.after').forEach(l => l.innerText = t.sliderAfter);
-    const galleryTitles = document.querySelectorAll('.gallery-title');
-    t.galleryTitles.forEach((title, i) => { if (galleryTitles[i]) galleryTitles[i].innerText = title; });
+    // Galerie Photos avec aperçu + "Voir plus"
+    safeSet('galleryTitle', t.galleryTitle);
+    const photoGallery = document.getElementById('photoGallery');
+    if (photoGallery && t.galleryPhotos) {
+        const previewCount = t.galleryPreviewCount || 4;
+        const allPhotos = t.galleryPhotos;
+
+        function renderGalleryItem(photo, idx, hidden) {
+            return `<div class="photo-gallery-item${hidden ? ' gallery-hidden' : ''}" data-idx="${idx}" tabindex="0" role="button" aria-label="${photo.alt}">
+                <img src="${photo.src}" alt="${photo.alt}" width="400" height="300" loading="lazy" decoding="async"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="photo-gallery-placeholder" style="display:none;">📷<span>${photo.caption}</span></div>
+                <div class="photo-gallery-overlay">
+                    <span class="photo-gallery-caption">${photo.caption}</span>
+                </div>
+                <div class="photo-gallery-zoom">🔍</div>
+            </div>`;
+        }
+
+        let html = allPhotos.map((photo, idx) => renderGalleryItem(photo, idx, idx >= previewCount)).join('');
+
+        // Bouton "Voir plus" uniquement si plus de photos que l'aperçu
+        if (allPhotos.length > previewCount) {
+            html += `<div class="gallery-toggle-wrapper">
+                <button type="button" class="gallery-toggle-btn" id="galleryToggleBtn" aria-expanded="false">
+                    <span class="gallery-toggle-text">${t.galleryShowMore}</span>
+                    <span class="gallery-toggle-icon">▼</span>
+                </button>
+            </div>`;
+        }
+
+        photoGallery.innerHTML = html;
+
+        // Gestion du bouton toggle
+        const toggleBtn = document.getElementById('galleryToggleBtn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                const hiddenItems = photoGallery.querySelectorAll('.gallery-hidden');
+                if (!isExpanded) {
+                    hiddenItems.forEach(item => item.classList.add('gallery-visible'));
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                    toggleBtn.querySelector('.gallery-toggle-text').textContent = t.galleryShowLess;
+                    toggleBtn.querySelector('.gallery-toggle-icon').textContent = '▲';
+                } else {
+                    hiddenItems.forEach(item => item.classList.remove('gallery-visible'));
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.querySelector('.gallery-toggle-text').textContent = t.galleryShowMore;
+                    toggleBtn.querySelector('.gallery-toggle-icon').textContent = '▼';
+                    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+    }
 
     // Vidéos, Blog, Guides, FAQ
     const vTitle = document.getElementById('videosTitle');
@@ -540,71 +607,24 @@ function setLanguage(lang) {
     });
 
     updateHours();
+    
+    // Réattacher la lightbox car le DOM de la galerie a été régénéré !
+    if (typeof attachLightboxToImages === 'function') {
+        attachLightboxToImages();
+    }
 }
+
+// Scroll vers le formulaire RDV au clic sur le bouton CTA
+document.getElementById('ctaBookBtn')?.addEventListener('click', () => {
+    document.getElementById('rdv').scrollIntoView({ behavior: 'smooth' });
+});
 
 // Écouteurs de langue
 document.getElementById('langFr').addEventListener('click', () => setLanguage('fr'));
 document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
 document.getElementById('langAr').addEventListener('click', () => setLanguage('ar'));
 
-// ==================== SLIDERS AVANT/APRES ====================
-function initSlider(containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    const slider = document.getElementById(containerId + '-slider');
-    const handle = document.getElementById(containerId + '-handle');
-    if (!slider || !handle) return;
-
-    let isDragging = false;
-    let currentPercentage = 50;
-
-    function moveSlider(percentage) {
-        percentage = Math.max(0, Math.min(100, percentage));
-        currentPercentage = percentage;
-        slider.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
-        handle.style.left = `${percentage}%`;
-        handle.setAttribute('aria-valuenow', percentage);
-        handle.setAttribute('aria-valuetext', `${Math.round(100 - percentage)}% avant, ${Math.round(percentage)}% après`);
-    }
-
-    function onMove(clientX) {
-        const rect = container.getBoundingClientRect();
-        let percentage = ((clientX - rect.left) / rect.width) * 100;
-        moveSlider(percentage);
-    }
-
-    function onMouseMove(e) { if (isDragging) onMove(e.clientX); }
-    function onTouchMove(e) { if (isDragging && e.touches.length) onMove(e.touches[0].clientX); }
-
-    handle.addEventListener('mousedown', (e) => { isDragging = true; onMove(e.clientX); e.preventDefault(); });
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', () => { isDragging = false; });
-
-    handle.addEventListener('touchstart', (e) => { isDragging = true; onMove(e.touches[0].clientX); });
-    document.addEventListener('touchmove', onTouchMove);
-    document.addEventListener('touchend', () => { isDragging = false; });
-
-    handle.setAttribute('tabindex', '0');
-    handle.setAttribute('aria-label', handle.getAttribute('aria-label') || 'Comparer les photos avant et après');
-    handle.addEventListener('keydown', (e) => {
-        let step = document.body.classList.contains('rtl') ? -5 : 5;
-        if (e.key === 'ArrowRight') moveSlider(currentPercentage + step);
-        if (e.key === 'ArrowLeft') moveSlider(currentPercentage - step);
-    });
-
-    window.addEventListener('resize', () => moveSlider(currentPercentage));
-    moveSlider(50);
-
-    const decreaseBtn = container.parentElement.querySelector('.slider-decrease');
-    const increaseBtn = container.parentElement.querySelector('.slider-increase');
-    if (decreaseBtn && increaseBtn) {
-        decreaseBtn.addEventListener('click', () => moveSlider(currentPercentage - (document.body.classList.contains('rtl') ? -10 : 10)));
-        increaseBtn.addEventListener('click', () => moveSlider(currentPercentage + (document.body.classList.contains('rtl') ? -10 : 10)));
-    }
-}
-
 window.addEventListener('load', () => {
-    initSlider('slider1'); initSlider('slider2'); initSlider('slider3'); initSlider('slider4');
     setLanguage(currentLang);
 });
 
@@ -665,6 +685,12 @@ function validateDate() {
 
 dateInput.addEventListener('change', () => {
     const t = translations[currentLang];
+    // Si le champ vient d'être vidé (ex: reset du formulaire après succès), on ne lève pas d'erreur
+    if (!dateInput.value.trim()) {
+        errorDiv.classList.remove('show');
+        return;
+    }
+    
     if (!validateDate()) {
         errorDiv.textContent = t.errDate;
         errorDiv.classList.add('show');
@@ -707,7 +733,10 @@ form.addEventListener('submit', async function (e) {
         showToast("Caractères non autorisés détectés.", "error");
         return;
     }
-
+    // On garde les données brutes pour l'email
+    const rawName = name;
+    const rawPhone = phone;
+    const rawMsg = msgBody;
     // 5. Nettoyage (sanitization)
     name = sanitizeInput(name);
     phone = sanitizeInput(phone);
@@ -745,17 +774,15 @@ form.addEventListener('submit', async function (e) {
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<span class="spinner"></span> ' + t.txtSending;
 
-    const waWindow = window.open('', '_blank', 'noopener,noreferrer');
-
     try {
         // 7. Envoi via EmailJS avec données nettoyées
         await emailjs.send('Dental website', 'template_z7asu16', {
-            name: name,
-            phone: phone,
-            type: type,
-            date: date,
-            message: msgBody
-        }, 'SE67PfF6urnha7Oom');
+    name: rawName,
+    phone: rawPhone,
+    type: type,
+    date: date,
+    message: rawMsg
+    }, 'SE67PfF6urnha7Oom');
 
         // 8. Incrémentation du compteur après succès
         incrementSubmissionCounter();
@@ -763,11 +790,6 @@ form.addEventListener('submit', async function (e) {
         await new Promise(resolve => setTimeout(resolve, 800));
 
         const emailMsg = t.waTemplate(name, phone, type, date, msgBody);
-        if (waWindow) {
-            waWindow.location.href = `https://wa.me/21623221454?text=${encodeURIComponent(emailMsg)}`;
-        } else {
-            console.warn("Pop-up bloqué, WhatsApp ne s'est pas ouvert.");
-        }
 
         const mailtoLink = `mailto:contact@rtimidental.tn?subject=Demande de RDV - ${encodeURIComponent(name)}&body=${encodeURIComponent(emailMsg)}`;
         const emailFallbackTag = document.getElementById('emailFallback');
@@ -789,7 +811,6 @@ form.addEventListener('submit', async function (e) {
 
     } catch (err) {
         console.error("Erreur lors de la soumission :", err);
-        if (waWindow) waWindow.close();
         errorDiv.textContent = t.errGeneric;
         errorDiv.classList.add('show');
     } finally {
@@ -807,6 +828,11 @@ function closeConfirmationModal() {
 modalClose.addEventListener('click', closeConfirmationModal);
 confirmationModal.addEventListener('click', (e) => {
     if (e.target === confirmationModal) closeConfirmationModal();
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && confirmationModal.classList.contains('active')) {
+        closeConfirmationModal();
+    }
 });
 
 
@@ -854,7 +880,11 @@ if (quickForm) {
         try {
             // 6. Envoi avec les données nettoyées
             await emailjs.send('Dental website', 'template_z7asu16', {
-                message: msg
+             name: '(Message rapide)',
+             phone: '-',
+             type: '-',
+             date: '-',
+              message: msg
             }, 'SE67PfF6urnha7Oom');
 
             // 7. Incrémentation du compteur après succès
@@ -922,6 +952,12 @@ function performSearch(e) {
     }
 }
 
+// Connexion du bouton de recherche et de la touche Entrée
+document.getElementById('searchButton')?.addEventListener('click', performSearch);
+document.getElementById('siteSearch')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') performSearch(e);
+});
+
 // ==================== LIGHTBOX ====================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -932,23 +968,30 @@ let currentGalleryImages = [];
 let currentIndex = 0;
 
 function updateGalleryImages() {
-    currentGalleryImages = Array.from(document.querySelectorAll('.before-after-container img, .gallery-item img, .blog-card img, .kb-card img'));
+    currentGalleryImages = Array.from(document.querySelectorAll('.photo-gallery-item img, .blog-card img, .kb-card img'));
 }
 
 function attachLightboxToImages() {
     updateGalleryImages();
     currentGalleryImages.forEach((img, idx) => {
-        img.removeEventListener('click', handleLightboxClick);
-        img.addEventListener('click', handleLightboxClick);
-        img.dataset.lightboxIndex = idx;
+        const triggerArea = img.closest('.photo-gallery-item, .blog-card, .kb-card') || img;
+        triggerArea.removeEventListener('click', triggerArea._lightboxHandler);
+        triggerArea.removeEventListener('keydown', triggerArea._lightboxKeydown);
+        
+        triggerArea._lightboxHandler = (e) => {
+            e.stopPropagation();
+            openLightbox(idx);
+        };
+        triggerArea._lightboxKeydown = (e) => {
+            if (e.key === 'Enter') {
+                e.stopPropagation();
+                openLightbox(idx);
+            }
+        };
+        
+        triggerArea.addEventListener('click', triggerArea._lightboxHandler);
+        triggerArea.addEventListener('keydown', triggerArea._lightboxKeydown);
     });
-}
-
-function handleLightboxClick(e) {
-    e.stopPropagation();
-    const img = e.currentTarget;
-    const index = Array.from(currentGalleryImages).indexOf(img);
-    if (index !== -1) openLightbox(index);
 }
 
 function openLightbox(index) {
