@@ -15,6 +15,16 @@
     <link rel="alternate" hreflang="en" href="https://rtimidental.tn/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://rtimidental.tn/" />
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => console.error('SW failed', err));
+            });
+        }
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rtimidental.tn/">
@@ -68,9 +78,9 @@
 
     <title>Cabinet Dentaire Dr Rtimi Mossaab | Dentiste à El Hamma, Gabès</title>
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🦷%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="icon" href="images/favicon-32.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
     
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
@@ -123,10 +133,16 @@
         </div>
     </nav>
 
-    <div class="search-container" role="search" aria-label="Recherche sur le site" style="display: flex; justify-content: center; margin: 15px 0;">
-        <div class="search-bar" style="display: flex; gap: 5px; max-width: 500px; width: 100%;">
-        <input type="search" id="siteSearch" name="q" autocomplete="off" enterkeyhint="search" aria-label="Rechercher dans le site" placeholder="Rechercher..." style="flex:1; padding: 12px; border-radius: 10px; border: 1px solid #ccc;">
-        <button type="button" id="searchButton" aria-label="Lancer la recherche" style="padding: 12px 20px; background: var(--primary); color: white; border: none; border-radius: 10px;">🔍</button>
+    <div class="search-container" role="search" aria-label="Recherche sur le site">
+        <div class="container">
+            <form class="search-bar" onsubmit="return false;">
+                <input type="search" id="siteSearch" name="q" autocomplete="off" enterkeyhint="search" aria-label="Rechercher dans le site" placeholder="Rechercher sur rtimidental.tn...">
+                <button type="submit" id="searchButton" aria-label="Lancer la recherche">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+            </form>
         </div>
     </div>
 
@@ -134,11 +150,13 @@
 
         <!-- About -->
         <section id="about">
-            <div class="container" style="text-align: center;">
+            <div class="container">
                 <h2 id="aboutTitle">Présentation</h2>
-                <p id="aboutText1">Bienvenue sur <strong>rtimidental.tn</strong>. Le cabinet du Dr Mossaab Rtimi vous accueille pour des soins de haute qualité.</p>
-                <p id="aboutText2" style="display: none;"></p>
-                <p id="aboutText3" style="margin-top: 30px; max-width: 800px; margin: auto;">Situé à El Hamma (Gabès), notre cabinet allie expertise, technologie de pointe (CAD/CAM, PRF, implants premium) et accueil chaleureux.</p>
+                <div class="about-card">
+                    <p id="aboutText1" class="about-highlight">Bienvenue sur <strong>rtimidental.tn</strong>. Le cabinet du Dr Mossaab Rtimi vous accueille pour des soins de haute qualité.</p>
+                    <p id="aboutText2" style="display: none;"></p>
+                    <p id="aboutText3" class="about-subtext">Situé à El Hamma (Gabès), notre cabinet allie expertise, technologie de pointe (CAD/CAM, PRF, implants premium) et accueil chaleureux.</p>
+                </div>
             </div>
         </section>
 
@@ -188,7 +206,7 @@
         <!-- Galerie Photos -->
         <section id="gallery">
             <div class="container">
-                <h2 id="galleryTitle">Galerie Photos | معرض الصور</h2>
+                <h2 id="galleryTitle">Galerie Photos</h2>
                 <div class="photo-gallery" id="photoGallery"></div>
             </div>
         </section>
@@ -198,11 +216,14 @@
             <div class="container">
                 <h2 id="videosTitle">Vidéos</h2>
                 <div class="videos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 30px; justify-content: center;">
-                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 15px; box-shadow: var(--shadow);">
-                        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/CbeeSoCFXVw" title="وداعاً لأسلاك التقويم! كيف تحصل على أسنان مثالية دون أن يلاحظ أحد؟" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/CbeeSoCFXVw" title="وداعاً لأسلاك التقويم! كيف تحصل على أسنان مثالية دون أن يلاحظ أحد؟" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 15px; box-shadow: var(--shadow);">
-                        <iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/LnGbupvJZnU" title="زراعة الأسنان في 20 ثانية.. هكذا تستعيد ابتسامتك! 😁" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/LnGbupvJZnU" title="زراعة الأسنان في 20 ثانية.. هكذا تستعيد ابتسامتك! 😁" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/CxUcrUe_p4M" title="هل تنزف لثتك عند تنظيف أسنانك؟ إليك الحل النهائي! ⚠️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -236,7 +257,7 @@
         <section id="rdv">
             <div class="container">
                 <h2 id="rdvTitle">Prendre Rendez-vous</h2>
-                <form id="appointmentForm" aria-describedby="formError">
+                <form id="appointmentForm" aria-describedby="formError" style="position: relative;">
                     <div class="error-message" id="formError" role="alert" aria-live="assertive"></div>
                     <div class="form-group">
                         <label id="nameLabel" for="name">Nom complet *</label>
@@ -336,7 +357,7 @@
 
     <!-- Chatbot -->
     <button type="button" id="chatbot-toggle" aria-label="Assistant virtuel" aria-controls="chatbot-box" aria-expanded="false">🤖</button>
-    <div id="chatbot-box" role="dialog" aria-label="Assistant virtuel" aria-modal="false" aria-hidden="true">
+    <div id="chatbot-box" role="dialog" aria-label="Assistant virtuel" aria-modal="true" aria-hidden="true">
         <div class="chatbot-header">
             <span id="chatbot-title">🦷 Assistant Dr Rtimi</span>
             <button type="button" class="chatbot-close" id="chatbot-close" aria-label="Fermer">×</button>
@@ -374,6 +395,19 @@
         </div>
     </div>
 
+    <!-- PWA iOS Modal -->
+    <div id="pwaIosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="pwaIosTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="pwaIosClose" aria-label="Fermer">&times;</button>
+            <h3 id="pwaIosTitle">📲 Installer sur iPhone</h3>
+            <div class="pwa-ios-instructions">
+                <p id="pwaIosStep1">1. Appuyez sur le bouton <strong>Partager</strong> <svg viewBox="0 0 24 24" width="20" height="20" style="vertical-align: middle; fill: var(--primary);"><path d="M16 5l-1.42 1.42-1.59-1.59V16h-1.98V4.83L9.42 6.42 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2 .9 2 2z"/></svg> en bas de l'écran.</p>
+                <p id="pwaIosStep2">2. Faites défiler et choisissez <strong>"Sur l'écran d'accueil"</strong> <span style="font-size: 1.2rem;">⊕</span>.</p>
+                <p id="pwaIosStep3">3. Cliquez sur <strong>Ajouter</strong> en haut à droite.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -405,6 +439,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
+                <button type="button" id="pwaInstallBtn" class="pwa-install-btn">📲 <span id="pwaBtnText">Installer l'app</span></button>
                 <p id="footerBottomText">Site web optimisé pour mobile • Accessibilité • Confidentialité</p>
             </div>
         </div>

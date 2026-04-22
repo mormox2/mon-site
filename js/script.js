@@ -10,8 +10,93 @@ function safeSetText(id, text) {
     return el;
 }
 
+function readFromStorage(key, fallback = null) {
+    try {
+        const value = window.localStorage.getItem(key);
+        return value === null ? fallback : value;
+    } catch (error) {
+        console.warn(`Storage read failed for "${key}".`, error);
+        return fallback;
+    }
+}
+
+function writeToStorage(key, value) {
+    try {
+        window.localStorage.setItem(key, value);
+        return true;
+    } catch (error) {
+        console.warn(`Storage write failed for "${key}".`, error);
+        return false;
+    }
+}
+
+function parseSubmissionTracker(rawValue, now = Date.now()) {
+    if (!rawValue) return { count: 0, firstAttempt: now };
+
+    try {
+        const parsed = JSON.parse(rawValue);
+        const count = Number(parsed?.count);
+        const firstAttempt = Number(parsed?.firstAttempt);
+
+        if (!Number.isFinite(count) || !Number.isFinite(firstAttempt)) {
+            throw new Error('Invalid tracker shape');
+        }
+
+        return {
+            count: Math.max(0, count),
+            firstAttempt
+        };
+    } catch (error) {
+        console.warn('Invalid submission tracker in storage, resetting it.', error);
+        return { count: 0, firstAttempt: now };
+    }
+}
+
+function isEmailJsAvailable() {
+    return typeof window.emailjs !== 'undefined'
+        && typeof window.emailjs.init === 'function'
+        && typeof window.emailjs.send === 'function';
+}
+
+function isFlatpickrAvailable() {
+    return typeof window.flatpickr === 'function' && !!window.flatpickr.l10ns;
+}
+
+function getFlatpickrLocale(lang) {
+    if (!isFlatpickrAvailable()) return null;
+    return flatpickr.l10ns[lang] || flatpickr.l10ns.default;
+}
+
+function buildMailtoLink(subject, body) {
+    return `mailto:contact@rtimidental.tn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function getMailFallbackNotice(lang) {
+    const notices = {
+        fr: "Le service d'envoi est indisponible. Votre messagerie va s'ouvrir.",
+        en: 'The email service is unavailable. Your mail app will open.',
+        ar: 'خدمة الإرسال غير متاحة حاليا. سيتم فتح البريد الإلكتروني.'
+    };
+
+    return notices[lang] || notices.fr;
+}
+
+function openMailtoFallback(link, lang) {
+    showToast(getMailFallbackNotice(lang), 'warning', 6000);
+    window.location.href = link;
+}
+
 (function() {
-    emailjs.init("SE67PfF6urnha7Oom");
+    if (!isEmailJsAvailable()) {
+        console.warn('EmailJS unavailable; forms will use the mail fallback.');
+        return;
+    }
+
+    try {
+        emailjs.init("SE67PfF6urnha7Oom");
+    } catch (error) {
+        console.warn('EmailJS initialization failed; forms will use the mail fallback.', error);
+    }
 })();
 
 // ==================== TRADUCTIONS (FR/EN/AR) ====================
@@ -216,17 +301,61 @@ const translations = {
     }
 };
 
+const SUPPORTED_LANGS = ['fr', 'en', 'ar'];
+
+const uiMessages = {
+    fr: {
+        antiSpamForm: "Soumission suspecte détectée. Si vous êtes humain, veuillez réessayer dans quelques secondes.",
+        submissionLimitForm: "Vous avez dépassé le nombre de demandes autorisées. Veuillez réessayer plus tard.",
+        invalidCharactersForm: "Caractères non autorisés détectés.",
+        emptyDate: "Veuillez entrer une date.",
+        antiSpamQuick: "Soumission suspecte détectée. Veuillez patienter quelques secondes.",
+        submissionLimitQuick: "Vous avez dépassé le nombre de messages autorisés. Veuillez réessayer plus tard.",
+        invalidCharactersQuick: "Caractères non autorisés détectés dans votre message."
+    },
+    en: {
+        antiSpamForm: "Suspicious submission detected. If you are human, please try again in a few seconds.",
+        submissionLimitForm: "You have exceeded the allowed number of appointment requests. Please try again later.",
+        invalidCharactersForm: "Unauthorized characters were detected.",
+        emptyDate: "Please enter a date.",
+        antiSpamQuick: "Suspicious submission detected. Please wait a few seconds before trying again.",
+        submissionLimitQuick: "You have exceeded the allowed number of messages. Please try again later.",
+        invalidCharactersQuick: "Unauthorized characters were detected in your message."
+    },
+    ar: {
+        antiSpamForm: "تم اكتشاف محاولة إرسال مشبوهة. إذا كنت مستخدما حقيقيا، يرجى إعادة المحاولة بعد بضع ثوان.",
+        submissionLimitForm: "لقد تجاوزت العدد المسموح من طلبات المواعيد. يرجى المحاولة لاحقا.",
+        invalidCharactersForm: "تم اكتشاف أحرف غير مسموح بها.",
+        emptyDate: "الرجاء إدخال تاريخ.",
+        antiSpamQuick: "تم اكتشاف محاولة إرسال مشبوهة. يرجى الانتظار بضع ثوان ثم إعادة المحاولة.",
+        submissionLimitQuick: "لقد تجاوزت العدد المسموح من الرسائل. يرجى المحاولة لاحقا.",
+        invalidCharactersQuick: "تم اكتشاف أحرف غير مسموح بها في رسالتك."
+    }
+};
+
+function normalizeLanguage(lang, fallback = 'fr') {
+    return SUPPORTED_LANGS.includes(lang) ? lang : fallback;
+}
+
+function getCurrentTranslation() {
+    return translations[normalizeLanguage(currentLang, 'fr')] || translations.fr;
+}
+
+function getCurrentUiMessages() {
+    return uiMessages[normalizeLanguage(currentLang, 'fr')] || uiMessages.fr;
+}
+
 // ==================== AUTO-DETECT & INIT LANG ====================
 const urlParams = new URLSearchParams(window.location.search);
-let urlLang = urlParams.get('lang');
-let currentLang = urlLang || localStorage.getItem('lang');
+const urlLang = normalizeLanguage(urlParams.get('lang'), null);
+let currentLang = normalizeLanguage(urlLang || readFromStorage('lang'), null);
 
 // ==================== FOCUS TRAP (VARIABLES GLOBALES) ====================
 let previousActiveElement = null;
 let currentModal = null;
 if (!currentLang) {
     const browserLang = navigator.language.slice(0, 2);
-    currentLang = (browserLang === 'ar' || browserLang === 'en') ? browserLang : 'fr';
+    currentLang = normalizeLanguage(browserLang, 'fr');
 }
 
 // Anti-spam : timestamp de chargement de la page
@@ -255,8 +384,7 @@ const LIMIT_WINDOW_HOURS = 24;
 
 function checkSubmissionLimit() {
     const now = Date.now();
-    const stored = localStorage.getItem('submissionTracker');
-    let tracker = stored ? JSON.parse(stored) : { count: 0, firstAttempt: now };
+    let tracker = parseSubmissionTracker(readFromStorage('submissionTracker'), now);
     
     if (now - tracker.firstAttempt > LIMIT_WINDOW_HOURS * 60 * 60 * 1000) {
         tracker = { count: 0, firstAttempt: now };
@@ -267,15 +395,14 @@ function checkSubmissionLimit() {
 
 function incrementSubmissionCounter() {
     const now = Date.now();
-    const stored = localStorage.getItem('submissionTracker');
-    let tracker = stored ? JSON.parse(stored) : { count: 0, firstAttempt: now };
+    let tracker = parseSubmissionTracker(readFromStorage('submissionTracker'), now);
     
     if (now - tracker.firstAttempt > LIMIT_WINDOW_HOURS * 60 * 60 * 1000) {
         tracker = { count: 0, firstAttempt: now };
     }
     
     tracker.count += 1;
-    localStorage.setItem('submissionTracker', JSON.stringify(tracker));
+    writeToStorage('submissionTracker', JSON.stringify(tracker));
 }
 
 function sanitizeInput(str) {
@@ -308,13 +435,22 @@ function showToast(message, type = 'info', duration = 4000) {
     else if (type === 'warning') icon = '⚠️';
     else icon = 'ℹ️';
 
-    toast.innerHTML = `
-        <span class="toast-icon">${icon}</span>
-        <span class="toast-content">${message}</span>
-        <button class="toast-close" aria-label="Fermer">×</button>
-    `;
+    const iconEl = document.createElement('span');
+    iconEl.className = 'toast-icon';
+    iconEl.textContent = icon;
 
-    const closeBtn = toast.querySelector('.toast-close');
+    const contentEl = document.createElement('span');
+    contentEl.className = 'toast-content';
+    contentEl.textContent = String(message ?? '');
+
+    const closeLabels = { fr: 'Fermer', en: 'Close', ar: 'إغلاق' };
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'toast-close';
+    closeBtn.type = 'button';
+    closeBtn.setAttribute('aria-label', closeLabels[currentLang] || 'Fermer');
+    closeBtn.textContent = 'x';
+
+    toast.append(iconEl, contentEl, closeBtn);
     closeBtn.addEventListener('click', () => removeToast(toast));
 
     container.appendChild(toast);
@@ -333,20 +469,20 @@ function removeToast(toast) {
 }
 
 function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    const t = translations[lang];
-    if (!t) return;
+    const normalizedLang = normalizeLanguage(lang, 'fr');
+    currentLang = normalizedLang;
+    writeToStorage('lang', normalizedLang);
+    const t = translations[normalizedLang] || translations.fr;
 
     // Mise à jour de l'URL sans rechargement
     const url = new URL(window.location);
-    url.searchParams.set('lang', lang);
+    url.searchParams.set('lang', normalizedLang);
     window.history.pushState({}, '', url);
 
     // Direction et balise HTML
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.body.classList.toggle('rtl', lang === 'ar');
+    document.documentElement.lang = normalizedLang;
+    document.documentElement.dir = normalizedLang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('rtl', normalizedLang === 'ar');
 
     // Textes basiques
     document.title = t.headerTitle;
@@ -373,7 +509,7 @@ function setLanguage(lang) {
     const about2 = document.getElementById('aboutText2');
     if (about2) {
         about2.innerText = t.aboutText2;
-        about2.style.display = lang === 'ar' ? 'block' : 'none';
+        about2.style.display = normalizedLang === 'ar' ? 'block' : 'none';
     }
     safeSetText('aboutText3', t.aboutText3);
 
@@ -387,8 +523,9 @@ function setLanguage(lang) {
     safeSet('gmbLink', t.gmbLink);
     safeSet('testimonialsGrid', t.testimonials.map(tm => {
     const starCount = (tm.stars.match(/⭐/g) || []).length;
+    const starLabels = { fr: `Note de ${starCount} étoiles sur 5`, en: `Rating: ${starCount} out of 5 stars`, ar: `التقييم: ${starCount} من 5 نجوم` };
     return `<div class="testimonial-card">
-        <div class="stars" aria-label="Note de ${starCount} étoiles sur 5">
+        <div class="stars" aria-label="${starLabels[normalizedLang] || starLabels.fr}">
             <span aria-hidden="true">${tm.stars}</span>
         </div>
         <p class="testimonial-text">"${tm.text}"</p>
@@ -591,19 +728,20 @@ function setLanguage(lang) {
     const dateInput = document.getElementById('date');
     if (dateInput) {
         dateInput.placeholder = t.datePlaceholder;
-        if (dateInput._flatpickr) {
-            let fpLocale = flatpickr.l10ns[lang] || flatpickr.l10ns.default;
-            dateInput._flatpickr.set('locale', fpLocale);
-            dateInput._flatpickr.set('placeholder', t.datePlaceholder);
+        if (dateInput._flatpickr && isFlatpickrAvailable()) {
+            const fpLocale = getFlatpickrLocale(normalizedLang);
+            if (fpLocale) {
+                dateInput._flatpickr.set('locale', fpLocale);
+            }
         }
     }
 
     // Boutons de langue actifs
-    document.getElementById('langFr').classList.toggle('active', lang === 'fr');
-    document.getElementById('langEn').classList.toggle('active', lang === 'en');
-    document.getElementById('langAr').classList.toggle('active', lang === 'ar');
+    document.getElementById('langFr').classList.toggle('active', normalizedLang === 'fr');
+    document.getElementById('langEn').classList.toggle('active', normalizedLang === 'en');
+    document.getElementById('langAr').classList.toggle('active', normalizedLang === 'ar');
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
+        btn.setAttribute('aria-pressed', btn.dataset.lang === normalizedLang ? 'true' : 'false');
     });
 
     updateHours();
@@ -639,11 +777,24 @@ const confirmationModal = document.getElementById('confirmationModal');
 const modalMessage = document.getElementById('modalMessage');
 const modalClose = confirmationModal.querySelector('.modal-close');
 
-flatpickr(dateInput, { locale: flatpickr.l10ns.default, minDate: 'today', dateFormat: 'd/m/Y', allowInput: true });
+if (dateInput && isFlatpickrAvailable()) {
+    flatpickr(dateInput, {
+        locale: getFlatpickrLocale(currentLang) || flatpickr.l10ns.default,
+        minDate: 'today',
+        dateFormat: 'd/m/Y',
+        allowInput: true
+    });
+} else if (dateInput) {
+    console.warn('Flatpickr unavailable; using the text date input fallback.');
+}
+
+function normalizePhoneNumber(phone) {
+    return phone.replace(/[\s().-]/g, '');
+}
 
 function validatePhone() {
-    const phone = phoneInput.value.trim();
-    const isValid = /^\d{8,}$/.test(phone);
+    const phone = normalizePhoneNumber(phoneInput.value.trim());
+    const isValid = /^(?:(?:\+|00)?216)?\d{8}$/.test(phone);
     if (phoneValidation) {
         phoneValidation.textContent = isValid ? '✅' : '❌';
         phoneValidation.style.color = isValid ? '#10b981' : '#dc2626';
@@ -678,13 +829,18 @@ function validateDate() {
         const selectedDate = new Date(year, month, day);
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        return !isNaN(selectedDate.getTime()) && selectedDate >= today;
+        const isExactCalendarDate = !isNaN(selectedDate.getTime())
+            && selectedDate.getFullYear() === year
+            && selectedDate.getMonth() === month
+            && selectedDate.getDate() === day;
+
+        return isExactCalendarDate && selectedDate >= today;
     }
     return false;
 }
 
 dateInput.addEventListener('change', () => {
-    const t = translations[currentLang];
+    const t = getCurrentTranslation();
     // Si le champ vient d'être vidé (ex: reset du formulaire après succès), on ne lève pas d'erreur
     if (!dateInput.value.trim()) {
         errorDiv.classList.remove('show');
@@ -701,10 +857,12 @@ dateInput.addEventListener('change', () => {
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    const t = getCurrentTranslation();
+    const ui = getCurrentUiMessages();
 
     // 1. Anti-spam (honeypot + délai)
     if (isSpamSubmission(e.target)) {
-        errorDiv.textContent = "Soumission suspecte détectée. Si vous êtes humain, veuillez réessayer dans quelques secondes.";
+        errorDiv.textContent = ui.antiSpamForm;
         errorDiv.classList.add('show');
         return;
     }
@@ -713,11 +871,9 @@ form.addEventListener('submit', async function (e) {
 
     // 2. Limite de soumissions
     if (!checkSubmissionLimit()) {
-        showToast("Vous avez dépassé le nombre de demandes autorisées. Veuillez réessayer plus tard.", "error");
+        showToast(ui.submissionLimitForm, "error");
         return;
     }
-
-    const t = translations[currentLang];
 
     // 3. Récupération et nettoyage des champs
     let name = document.getElementById('name').value.trim();
@@ -730,7 +886,7 @@ form.addEventListener('submit', async function (e) {
 
     // 4. Détection de motifs suspects
     if (containsSuspiciousPattern(name) || containsSuspiciousPattern(msgBody)) {
-        showToast("Caractères non autorisés détectés.", "error");
+        showToast(ui.invalidCharactersForm, "error");
         return;
     }
     // On garde les données brutes pour l'email
@@ -759,7 +915,7 @@ form.addEventListener('submit', async function (e) {
         return;
     }
     if (!dateInput.value.trim()) {
-        errorDiv.textContent = "Veuillez entrer une date.";
+        errorDiv.textContent = ui.emptyDate;
         errorDiv.classList.add('show');
         return;
     }
@@ -769,6 +925,14 @@ form.addEventListener('submit', async function (e) {
         return;
     }
     if (!consent) return;
+
+    const emailMsg = t.waTemplate(name, phone, type, date, msgBody);
+    const mailtoLink = buildMailtoLink(`Demande de RDV - ${name}`, emailMsg);
+
+    if (!isEmailJsAvailable()) {
+        openMailtoFallback(mailtoLink, currentLang);
+        return;
+    }
 
     submitBtn.disabled = true;
     const originalText = submitBtn.innerHTML;
@@ -789,20 +953,17 @@ form.addEventListener('submit', async function (e) {
 
         await new Promise(resolve => setTimeout(resolve, 800));
 
-        const emailMsg = t.waTemplate(name, phone, type, date, msgBody);
-
-        const mailtoLink = `mailto:contact@rtimidental.tn?subject=Demande de RDV - ${encodeURIComponent(name)}&body=${encodeURIComponent(emailMsg)}`;
         const emailFallbackTag = document.getElementById('emailFallback');
         if (emailFallbackTag) emailFallbackTag.href = mailtoLink;
 
-        modalMessage.innerHTML = t.successMsg(name, date);
+        modalMessage.textContent = t.successMsg(name, date);
         confirmationModal.classList.add('active');
         confirmationModal.setAttribute('aria-hidden', 'false');
         trapFocus(confirmationModal);
 
         form.reset();
         if (phoneValidation) phoneValidation.textContent = '';
-        dateInput._flatpickr.clear();
+        if (dateInput._flatpickr) dateInput._flatpickr.clear();
 
         setTimeout(() => {
             confirmationModal.classList.remove('active');
@@ -811,8 +972,7 @@ form.addEventListener('submit', async function (e) {
 
     } catch (err) {
         console.error("Erreur lors de la soumission :", err);
-        errorDiv.textContent = t.errGeneric;
-        errorDiv.classList.add('show');
+        openMailtoFallback(mailtoLink, currentLang);
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -841,20 +1001,20 @@ const quickForm = document.getElementById('quickContactForm');
 if (quickForm) {
     quickForm.addEventListener('submit', async function (e) {
         e.preventDefault();
+        const t = getCurrentTranslation();
+        const ui = getCurrentUiMessages();
 
         // 1. Vérification anti-spam (honeypot + délai)
         if (isSpamSubmission(e.target)) {
-            showToast("Soumission suspecte détectée. Veuillez patienter quelques secondes.", "warning");
+            showToast(ui.antiSpamQuick, "warning");
             return;
         }
 
         // 2. Vérification de la limite de soumissions
         if (!checkSubmissionLimit()) {
-            showToast("Vous avez dépassé le nombre de messages autorisés. Veuillez réessayer plus tard.", "error");
+            showToast(ui.submissionLimitQuick, "error");
             return;
         }
-
-        const t = translations[currentLang];
         let msg = document.getElementById('quickMessage').value.trim();
 
         // 3. Vérification champ vide
@@ -865,12 +1025,19 @@ if (quickForm) {
 
         // 4. Détection de motifs suspects
         if (containsSuspiciousPattern(msg)) {
-            showToast("Caractères non autorisés détectés dans votre message.", "error");
+            showToast(ui.invalidCharactersQuick, "error");
             return;
         }
 
         // 5. Nettoyage de la chaîne
         msg = sanitizeInput(msg);
+
+        const mailtoLink = buildMailtoLink('Message depuis le site', msg);
+
+        if (!isEmailJsAvailable()) {
+            openMailtoFallback(mailtoLink, currentLang);
+            return;
+        }
 
         const btn = document.getElementById('quickSendBtn');
         const prevText = btn.innerText;
@@ -894,7 +1061,7 @@ if (quickForm) {
             quickForm.reset();
         } catch (err) {
             console.error("Erreur envoi contact rapide:", err);
-            showToast(t.errGeneric || "Erreur d'envoi", "error");
+            openMailtoFallback(mailtoLink, currentLang);
         } finally {
             btn.innerText = prevText;
             btn.disabled = false;
@@ -908,13 +1075,14 @@ function performSearch(e) {
     
     const searchInput = document.getElementById('siteSearch');
     const query = searchInput.value.trim();
-    const t = translations[currentLang];
+    const t = getCurrentTranslation();
     
     // Gestion champ vide
+    const emptySearchMsg = { fr: 'Veuillez saisir un terme de recherche.', en: 'Please enter a search term.', ar: 'الرجاء إدخال مصطلح بحث.' };
     if (!query) {
         searchInput.focus();
         searchInput.setAttribute('aria-invalid', 'true');
-        showToast("Veuillez saisir un terme de recherche.", "warning");
+        showToast(emptySearchMsg[currentLang] || emptySearchMsg.fr, "warning");
         return;
     }
     
@@ -1054,10 +1222,11 @@ function toggleTheme() {
     document.body.classList.toggle('dark-mode');
     themeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
     themeToggle.setAttribute('aria-pressed', document.body.classList.contains('dark-mode') ? 'true' : 'false');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    writeToStorage('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 }
 themeToggle.addEventListener('click', toggleTheme);
-if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+const storedTheme = readFromStorage('theme');
+if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.body.classList.add('dark-mode');
     themeToggle.textContent = '🌙';
     themeToggle.setAttribute('aria-pressed', 'true');
@@ -1151,7 +1320,7 @@ function updateHours() {
     const badge = document.getElementById('hoursStatus');
     if (!badge) return;
     badge.className = 'hours-badge ' + (open ? 'open' : 'closed');
-    const tr = translations[currentLang];
+    const tr = getCurrentTranslation();
     badge.textContent = open ? tr.badgeOpen : tr.badgeClosed;
 }
 updateHours();
@@ -1367,7 +1536,7 @@ document.getElementById('chatbot-close').addEventListener('click', () => {
 
 // ==================== MODALES ARTICLES / GUIDES ====================
 window.openArticleModal = function(index) {
-    const t = translations[currentLang];
+    const t = getCurrentTranslation();
     const p = t.blogPosts[index];
     if (!p) return;
     document.getElementById('articleModalTitle').innerHTML = p.title;
@@ -1382,7 +1551,7 @@ window.openArticleModal = function(index) {
 };
 
 window.openGuideModal = function(index) {
-    const t = translations[currentLang];
+    const t = getCurrentTranslation();
     const g = t.kbItems[index];
     if (!g) return;
     document.getElementById('articleModalTitle').innerHTML = g.title + ' ' + g.icon;
@@ -1413,3 +1582,118 @@ document.addEventListener('keydown', (e) => {
         closeArticleModal();
     }
 });
+
+// ==================== IMPROVEMENTS & PWA LOGIC ====================
+(function() {
+    // 1. Auto-save Form Draft
+    const fieldIds = ['name', 'phone', 'type', 'date', 'message'];
+    fieldIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            // Restore draft if exists
+            const saved = window.localStorage.getItem(draft_);
+            if (saved) el.value = saved;
+            // Save on input
+            el.addEventListener('input', (e) => {
+                window.localStorage.setItem(draft_, e.target.value);
+            });
+        }
+    });
+
+    // 2. Parallax Header Effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.hero-header');
+        if (header) {
+            const scroll = window.scrollY;
+            header.style.backgroundPositionY = (scroll * 0.4) + 'px';
+        }
+    });
+
+    // 3. Dynamic Translation Injection for PWA
+    const pwaStrings = {
+        fr: { pwaBtnText: "Installer l'app", pwaIosTitle: "📲 Installer sur iPhone", pwaIosStep1: "1. Appuyez sur le bouton <strong>Partager</strong>.", pwaIosStep2: "2. Choisissez <strong>'Sur l'écran d'accueil'</strong>.", pwaIosStep3: "3. Cliquez sur <strong>Ajouter</strong>.", pwaInstallSuccess: "Application installée avec succès !", pwaNotSupported: "Pour installer l'application, ouvrez ce site dans Chrome sur mobile Android, ou utilisez Safari sur iPhone/iPad." },
+        en: { pwaBtnText: "Install App", pwaIosTitle: "📲 Install on iPhone", pwaIosStep1: "1. Tap the <strong>Share</strong> button.", pwaIosStep2: "2. Tap <strong>'Add to Home Screen'</strong>.", pwaIosStep3: "3. Tap <strong>Add</strong>.", pwaInstallSuccess: "App installed successfully!", pwaNotSupported: "To install the app, open this site in Chrome on Android, or use Safari on iPhone/iPad." },
+        ar: { pwaBtnText: "تثبيت التطبيق", pwaIosTitle: "📲 تثبيت على iPhone", pwaIosStep1: "1. اضغط على زر <strong>المشاركة</strong>.", pwaIosStep2: "2. اختر <strong>'إضافة إلى الشاشة الرئيسية'</strong>.", pwaIosStep3: "3. اضغط <strong>إضافة</strong>.", pwaInstallSuccess: "تم تثبيت التطبيق بنجاح!", pwaNotSupported: "لتثبيت التطبيق، افتح هذا الموقع في Chrome على هاتف Android أو استخدم Safari على iPhone/iPad." }
+    };
+    
+    // Inject safely into existing translations object
+    if (typeof translations !== 'undefined') {
+        for (const lang in pwaStrings) {
+            if (translations[lang]) {
+                Object.assign(translations[lang], pwaStrings[lang]);
+            }
+        }
+    }
+
+    // 4. PWA Installation Handler
+    let deferredPrompt;
+    const pwaBtn = document.getElementById('pwaInstallBtn');
+    const pwaBtnText = document.getElementById('pwaBtnText');
+    const pwaIosModal = document.getElementById('pwaIosModal');
+    const pwaIosClose = document.getElementById('pwaIosClose');
+
+    const isIos = () => /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+    const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches || isInStandaloneMode();
+
+    // Masquer le bouton si déjà en mode app installée
+    if (pwaBtn && isStandalone()) {
+        pwaBtn.style.display = 'none';
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+    });
+
+    if (pwaBtn) {
+        pwaBtn.addEventListener('click', async () => {
+            const t = typeof getCurrentTranslation === 'function' ? getCurrentTranslation() : translations[document.documentElement.lang] || translations.fr;
+            
+            // iOS : afficher le guide d'installation
+            if (isIos()) {
+                if (pwaIosModal) {
+                    document.getElementById('pwaIosTitle').textContent = t.pwaIosTitle;
+                    document.getElementById('pwaIosStep1').innerHTML = t.pwaIosStep1;
+                    document.getElementById('pwaIosStep2').innerHTML = t.pwaIosStep2;
+                    document.getElementById('pwaIosStep3').innerHTML = t.pwaIosStep3;
+                    pwaIosModal.classList.add('active');
+                }
+                return;
+            }
+
+            // Android / Chrome Desktop : installation native
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    pwaBtn.style.display = 'none';
+                    showToast(t.pwaInstallSuccess || 'Application installée avec succès !', 'success');
+                }
+                deferredPrompt = null;
+                return;
+            }
+
+            // Navigateur non compatible : afficher un message d'aide
+            const msg = t.pwaNotSupported || "Pour installer l'application, ouvrez ce site dans Chrome sur mobile Android, ou utilisez Safari sur iPhone/iPad.";
+            showToast(msg, 'info', 6000);
+        });
+    }
+
+    if (pwaIosClose) {
+        pwaIosClose.addEventListener('click', () => pwaIosModal.classList.remove('active'));
+    }
+
+    // Language Sync for PWA Button
+    ['langFr', 'langEn', 'langAr'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                setTimeout(() => {
+                    const t = typeof getCurrentTranslation === 'function' ? getCurrentTranslation() : translations[document.documentElement.lang] || translations.fr;
+                    if (pwaBtnText) pwaBtnText.textContent = t.pwaBtnText;
+                }, 50);
+            });
+        }
+    });
+})();

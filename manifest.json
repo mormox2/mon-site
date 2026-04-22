@@ -1,0 +1,33 @@
+{
+  "name": "Cabinet Dentaire Dr Rtimi Mossaab",
+  "short_name": "Dr Rtimi",
+  "description": "Le cabinet du Dr Mossaab Rtimi vous accueille pour des soins de haute qualité à El Hamma.",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#0369a1",
+  "theme_color": "#0369a1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "lang": "fr-TN",
+  "categories": ["medical", "health"],
+  "prefer_related_applications": false
+}

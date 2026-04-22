@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow:
+Crawl-delay: 10
 
 Sitemap: https://rtimidental.tn/sitemap.xml
