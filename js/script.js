@@ -165,7 +165,16 @@ const translations = {
             { icon: "🖥️", title: "CAD/CAM exocad", shortDesc: "Conception et fabrication assistée par ordinateur pour des prothèses d'une précision micrométrique en une seule séance.", fullDesc: "Grâce au logiciel de pointe <strong>exocad</strong>, nous créons vos couronnes et facettes sur mesure directement au cabinet. Cette technologie élimine les délais d'attente et garantit une adaptation parfaite à votre dentition naturelle. C'est l'assurance d'un résultat esthétique durable et d'un confort immédiat." },
             { icon: "🔬", title: "Scanner Intra-oral", shortDesc: "Finies les empreintes pâteuses. Nous utilisons des scanners 3D pour une réplique numérique parfaite de votre dentition.", fullDesc: "Dites adieu au réflexe nauséeux des pâtes traditionnelles. Notre caméra optique 3D capture chaque détail de votre bouche en quelques secondes. Ce procédé est non seulement plus confortable pour vous, mais il permet aussi une communication instantanée avec nos laboratoires pour une précision chirurgicale." },
             { icon: "🩸", title: "Technologie PRF", shortDesc: "Utilisation de vos propres facteurs de croissance pour accélérer considérablement la cicatrisation après une chirurgie.", fullDesc: "La Fibrine Riche en Plaquettes (PRF) est une solution 100% naturelle issue de votre propre organisme. En concentrant vos facteurs de croissance, nous accélérons la régénération des tissus et de l'os. Cela réduit significativement les douleurs post-opératoires et les risques d'infection après la pose d'implants." }
-        ]
+        ], // <-- Virgule ajoutée
+        heroTagline: "Des soins dentaires modernes et personnalisés pour toute la famille à El Hamma.",
+        heroRdvBtn: "Prendre rendez-vous",
+        heroUrgenceBtn: "Urgences & Informations",
+        trustSafetyTitle: "Soins sécurisés",
+        trustSafetyDesc: "Hygiène & sécurité certifiées",
+        trustTechTitle: "Technologie de pointe",
+        trustTechDesc: "Équipements modernes",
+        trustPatientsTitle: "+500 Patients satisfaits",
+        trustPatientsDesc: "Confiance & expérience",
     },
     en: {
         headerTitle: "Dr Rtimi Mossaab Dental Clinic", headerSubtitle: "Excellence in modern dental care in El Hamma.", skipLink: "Skip to main content",
@@ -231,7 +240,16 @@ const translations = {
             { icon: "🖥️", title: "CAD/CAM exocad", shortDesc: "Computer-aided design and manufacturing for prostheses with micrometric precision in a single session.", fullDesc: "Thanks to the cutting-edge <strong>exocad</strong> software, we create your custom crowns and veneers directly in the office. This technology eliminates waiting times and ensures a perfect fit with your natural teeth. It guarantees a lasting aesthetic result and immediate comfort." },
             { icon: "🔬", title: "Intraoral Scanner", shortDesc: "No more gooey impressions. We use 3D scanners for a perfect digital replica of your teeth.", fullDesc: "Say goodbye to the gag reflex of traditional pastes. Our 3D optical camera captures every detail of your mouth in seconds. This process is not only more comfortable for you, but also allows instant communication with our labs for surgical precision." },
             { icon: "🩸", title: "PRF Technology", shortDesc: "Using your own growth factors to significantly accelerate healing after surgery.", fullDesc: "Platelet-Rich Fibrin (PRF) is a 100% natural solution derived from your own body. By concentrating your growth factors, we accelerate tissue and bone regeneration. This significantly reduces post-operative pain and the risk of infection after implant placement." }
-        ]
+        ], // <-- Virgule ajoutée
+        heroTagline: "Modern and personalized dental care for the whole family in El Hamma.",
+        heroRdvBtn: "Book an Appointment",
+        heroUrgenceBtn: "Emergencies & Info",
+        trustSafetyTitle: "Safe Care",
+        trustSafetyDesc: "Certified hygiene & safety",
+        trustTechTitle: "Advanced Technology",
+        trustTechDesc: "Modern equipment",
+        trustPatientsTitle: "+500 Happy Patients",
+        trustPatientsDesc: "Trust & experience",
     },
     ar: {
         headerTitle: "عيادة الدكتور مصعب رتيمي لطب و جراحة الأسنان", headerSubtitle: "تميز الرعاية الحديثة لطب الأسنان في الحامة.", skipLink: "الانتقال إلى المحتوى الرئيسي",
@@ -297,7 +315,16 @@ const translations = {
             { icon: "🖥️", title: "CAD/CAM exocad", shortDesc: "تصميم وتصنيع بمساعدة الكمبيوتر لتركيبات بدقة ميكرومترية في جلسة واحدة.", fullDesc: "بفضل برنامج <strong>exocad</strong> المتطور، نقوم بإنشاء التيجان والقشور الخاصة بك حسب الطلب مباشرة في العيادة. هذه التقنية تلغي أوقات الانتظار وتضمن تكيفًا مثاليًا مع أسنانك الطبيعية. إنها ضمان لنتيجة جمالية دائمة وراحة فورية." },
             { icon: "🔬", title: "الماسح الضوئي داخل الفم", shortDesc: "لا مزيد من العجائن المزعجة. نستخدم ماسحات ثلاثية الأبعاد للحصول على نسخة رقمية مثالية لأسنانك.", fullDesc: "وداعًا لرد الفعل المنعكس للعجائن التقليدية. تلتقط الكاميرا البصرية ثلاثية الأبعاد كل تفاصيل فمك في ثوانٍ. هذه العملية ليست فقط أكثر راحة لك، ولكنها تسمح أيضًا بالتواصل الفوري مع مختبراتنا للحصول على دقة فائقة." },
             { icon: "🩸", title: "تقنية PRF", shortDesc: "استخدام عوامل النمو الخاصة بك لتسريع الشفاء بشكل كبير بعد الجراحة.", fullDesc: "الفيبرين الغني بالصفائح الدموية (PRF) هو محلول طبيعي 100% مشتق من جسمك. من خلال تركيز عوامل النمو الخاصة بك، نسرع تجديد الأنسجة والعظام. هذا يقلل بشكل كبير من آلام ما بعد الجراحة وخطر العدوى بعد زراعة الأسنان." }
-        ]
+        ], // <-- Virgule ajoutée
+        heroTagline: "رعاية أسنان حديثة ومخصصة لجميع أفراد الأسرة في الحامة.",
+        heroRdvBtn: "حجز موعد",
+        heroUrgenceBtn: "طوارئ ومعلومات",
+        trustSafetyTitle: "رعاية آمنة",
+        trustSafetyDesc: "نظافة وسلامة معتمدة",
+        trustTechTitle: "تكنولوجيا متطورة",
+        trustTechDesc: "معدات حديثة",
+        trustPatientsTitle: "+500 مريض راضٍ",
+        trustPatientsDesc: "ثقة وخبرة",
     }
 };
 
@@ -719,6 +746,311 @@ function setLanguage(lang) {
     safeSetText('copyright', t.copyright);
     safeSetText('credits', t.credits);
     safeSetText('footerBottomText', t.footerBottomText);
+
+    // Nouveaux textes hero/trust
+    safeSetText('heroTagline', t.heroTagline);
+    safeSetText('heroRdvBtn', t.heroRdvBtn);
+    safeSetText('heroUrgenceBtn', t.heroUrgenceBtn);
+    safeSetText('trustSafetyTitle', t.trustSafetyTitle);
+    safeSetText('trustSafetyDesc', t.trustSafetyDesc);
+    safeSetText('trustTechTitle', t.trustTechTitle);
+    safeSetText('trustTechDesc', t.trustTechDesc);
+    safeSetText('trustPatientsTitle', t.trustPatientsTitle);
+    safeSetText('trustPatientsDesc', t.trustPatientsDesc);
+
+    // Placeholders
+    const searchInput = document.getElementById('siteSearch');
+    if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        dateInput.placeholder = t.datePlaceholder;
+        if (dateInput._flatpickr && isFlatpickrAvailable()) {
+            const fpLocale = getFlatpickrLocale(normalizedLang);
+            if (fpLocale) {
+                dateInput._flatpickr.set('locale', fpLocale);
+            }
+        }
+    }
+
+    // Boutons de langue actifs
+    document.getElementById('langFr').classList.toggle('active', normalizedLang === 'fr');
+    document.getElementById('langEn').classList.toggle('active', normalizedLang === 'en');
+    document.getElementById('langAr').classList.toggle('active', normalizedLang === 'ar');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.dataset.lang === normalizedLang ? 'true' : 'false');
+    });
+
+    updateHours();
+    
+    // Réattacher la lightbox car le DOM de la galerie a été régénéré !
+    if (typeof attachLightboxToImages === 'function') {
+        attachLightboxToImages();
+    }
+}
+
+
+
+function setLanguage(lang) {
+    const normalizedLang = normalizeLanguage(lang, 'fr');
+    currentLang = normalizedLang;
+    writeToStorage('lang', normalizedLang);
+    const t = translations[normalizedLang] || translations.fr;
+
+    // Mise à jour de l'URL sans rechargement
+    const url = new URL(window.location);
+    url.searchParams.set('lang', normalizedLang);
+    window.history.pushState({}, '', url);
+
+    // Direction et balise HTML
+    document.documentElement.lang = normalizedLang;
+    document.documentElement.dir = normalizedLang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('rtl', normalizedLang === 'ar');
+
+    // Textes basiques
+    document.title = t.headerTitle;
+    safeSetText('headerTitle', t.headerTitle);
+    safeSetText('headerSubtitle', t.headerSubtitle);
+    safeSetText('skipLink', t.skipLink);
+    safeSet('ctaBookBtn', t.ctaBook);
+
+    // Navigation
+    safeSetText('navAbout', t.navAbout);
+    safeSetText('navServices', t.navServices);
+    safeSetText('navTestimonials', t.navTestimonials);
+    safeSetText('navGallery', t.navGallery);
+    safeSetText('navVideos', t.navVideos);
+    safeSetText('navBlog', t.navBlog);
+    safeSetText('navKb', t.navKb);
+    safeSetText('navFaq', t.navFaq);
+    safeSetText('navRdv', t.navRdv);
+    safeSetText('navContact', t.navContact);
+
+    // Sections principales
+    safeSet('aboutTitle', t.aboutTitle);
+    safeSet('aboutText1', t.aboutText1);
+    const about2 = document.getElementById('aboutText2');
+    if (about2) {
+        about2.innerText = t.aboutText2;
+        about2.style.display = normalizedLang === 'ar' ? 'block' : 'none';
+    }
+    safeSetText('aboutText3', t.aboutText3);
+
+    safeSet('servicesTitle', t.servicesTitle);
+    safeSet('servicesList', t.services.map(s => `<div class="card"><span class="icon">${s.icon}</span><h3>${s.title}</h3><p>${s.desc}</p></div>`).join(''));
+
+    safeSet('testimonialsTitle', t.testimonialsTitle);
+    safeSetText('googleRatingLabel', t.googleRatingLabel);
+    safeSetText('reviewsCountLabel', t.reviewsCountLabel);
+    safeSetText('satisfactionLabel', t.satisfactionLabel);
+    safeSet('gmbLink', t.gmbLink);
+    safeSet('testimonialsGrid', t.testimonials.map(tm => {
+    const starCount = (tm.stars.match(/⭐/g) || []).length;
+    const starLabels = { fr: `Note de ${starCount} étoiles sur 5`, en: `Rating: ${starCount} out of 5 stars`, ar: `التقييم: ${starCount} من 5 نجوم` };
+    return `<div class="testimonial-card">
+        <div class="stars" aria-label="${starLabels[normalizedLang] || starLabels.fr}">
+            <span aria-hidden="true">${tm.stars}</span>
+        </div>
+        <p class="testimonial-text">"${tm.text}"</p>
+        <div class="testimonial-author">${tm.author}</div>
+        <div class="testimonial-role">${tm.role}</div>
+    </div>`;
+    }).join(''));
+
+    // Galerie Photos avec aperçu + "Voir plus"
+    safeSet('galleryTitle', t.galleryTitle);
+    const photoGallery = document.getElementById('photoGallery');
+    if (photoGallery && t.galleryPhotos) {
+        const previewCount = t.galleryPreviewCount || 4;
+        const allPhotos = t.galleryPhotos;
+
+        function renderGalleryItem(photo, idx, hidden) {
+            return `<div class="photo-gallery-item${hidden ? ' gallery-hidden' : ''}" data-idx="${idx}" tabindex="0" role="button" aria-label="${photo.alt}">
+                <img src="${photo.src}" alt="${photo.alt}" width="400" height="300" loading="lazy" decoding="async"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="photo-gallery-placeholder" style="display:none;">📷<span>${photo.caption}</span></div>
+                <div class="photo-gallery-overlay">
+                    <span class="photo-gallery-caption">${photo.caption}</span>
+                </div>
+                <div class="photo-gallery-zoom">🔍</div>
+            </div>`;
+        }
+
+        let html = allPhotos.map((photo, idx) => renderGalleryItem(photo, idx, idx >= previewCount)).join('');
+
+        // Bouton "Voir plus" uniquement si plus de photos que l'aperçu
+        if (allPhotos.length > previewCount) {
+            html += `<div class="gallery-toggle-wrapper">
+                <button type="button" class="gallery-toggle-btn" id="galleryToggleBtn" aria-expanded="false">
+                    <span class="gallery-toggle-text">${t.galleryShowMore}</span>
+                    <span class="gallery-toggle-icon">▼</span>
+                </button>
+            </div>`;
+        }
+
+        photoGallery.innerHTML = html;
+
+        // Gestion du bouton toggle
+        const toggleBtn = document.getElementById('galleryToggleBtn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                const hiddenItems = photoGallery.querySelectorAll('.gallery-hidden');
+                if (!isExpanded) {
+                    hiddenItems.forEach(item => item.classList.add('gallery-visible'));
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                    toggleBtn.querySelector('.gallery-toggle-text').textContent = t.galleryShowLess;
+                    toggleBtn.querySelector('.gallery-toggle-icon').textContent = '▲';
+                } else {
+                    hiddenItems.forEach(item => item.classList.remove('gallery-visible'));
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.querySelector('.gallery-toggle-text').textContent = t.galleryShowMore;
+                    toggleBtn.querySelector('.gallery-toggle-icon').textContent = '▼';
+                    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+    }
+
+    // Vidéos, Blog, Guides, FAQ
+    const vTitle = document.getElementById('videosTitle');
+    if (vTitle) vTitle.innerHTML = t.videosTitle;
+    safeSet('blogTitle', t.blogTitle);
+    safeSet('blogGrid', t.blogPosts.map((p, index) => `
+        <div class="blog-card">
+            <div class="blog-image">${p.title.includes('implant') || p.title.includes('زرع') ? '🦷' : '✨'}</div>
+            <div class="blog-content">
+                <div class="blog-date">${p.date}</div>
+                <h3>${p.title}</h3>
+                <p>${p.desc}</p>
+                <button type="button" class="blog-link" onclick="openArticleModal(${index})" style="background:none; border:none; color:var(--primary); font-family:inherit; font-weight:600; font-size:0.95rem; cursor:pointer; padding:0;">${t.blogReadMore}</button>
+            </div>
+        </div>
+    `).join(''));
+
+    safeSet('kbTitle', t.kbTitle);
+    safeSet('kbGrid', t.kbItems.map((k, index) => `
+        <div class="kb-card">
+            <span class="icon">${k.icon}</span>
+            <h3>${k.title}</h3>
+            <p>${k.desc}</p>
+            <button type="button" class="kb-link" onclick="openGuideModal(${index})" style="background:none; border:none; color:var(--primary); font-family:inherit; font-weight:600; font-size:0.95rem; cursor:pointer; padding:0; margin-top:10px;">${t.kbReadMore}</button>
+        </div>
+    `).join(''));
+
+    // FAQ
+    safeSet('faqTitle', t.faqTitle);
+    const faqContainer = document.getElementById('faqContainer');
+    if (faqContainer) {
+        const categoriesHTML = `<div class="faq-filters">
+            ${Object.entries(t.faqCategories).map(([k, v]) => `<button class="faq-filter-btn ${k === 'all' ? 'active' : ''}" data-cat="${k}">${v}</button>`).join('')}
+        </div>`;
+        const faqsHTML = `<div class="faq-list">` + t.faqs.map(faq => `<div class="faq-item reveal" data-cat="${faq.category}"><div class="faq-header"><div class="faq-title">${faq.q}</div><span class="faq-icon">▼</span></div><div class="faq-answer">${faq.a}</div></div>`).join('') + `</div>`;
+        faqContainer.innerHTML = categoriesHTML + faqsHTML;
+
+        // Réattacher les écouteurs FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        const filterBtns = document.querySelectorAll('.faq-filter-btn');
+        filterBtns.forEach(btn => btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.getAttribute('data-cat');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.classList.add('visible'), 50);
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('visible');
+                }
+            });
+        }));
+
+        // Afficher toutes les FAQ par défaut
+        const defaultFilter = document.querySelector('.faq-filter-btn.active');
+        if (defaultFilter) defaultFilter.click();
+    }
+
+    // Section Technologie
+    const tTech = t.techCards;
+    if (tTech) {
+        safeSetText('techTitle', t.techTitle);
+        safeSetText('techBadge', t.techBadge);
+        const techGrid = document.getElementById('techGrid');
+        if (techGrid) {
+            techGrid.innerHTML = tTech.map(card => `
+                <div class="card tech-card">
+                    <span class="icon">${card.icon}</span>
+                    <h3>${card.title}</h3>
+                    <p><strong>${card.shortDesc}</strong></p>
+                    <div class="article-text">${card.fullDesc}</div>
+                </div>
+            `).join('');
+            document.querySelectorAll('.tech-card').forEach(card => {
+                card.addEventListener('click', function() { this.classList.toggle('expanded'); });
+            });
+        }
+    }
+
+    // Formulaire RDV et Contact
+    safeSet('rdvTitle', t.rdvTitle);
+    safeSetText('nameLabel', t.nameLabel);
+    safeSetText('phoneLabel', t.phoneLabel);
+    safeSetText('typeLabel', t.typeLabel);
+    safeSetText('selectDefault', t.selectDefault);
+    safeSetText('optImplant', t.optImplant);
+    safeSetText('optEsthetique', t.optEsthetique);
+    safeSetText('optOrtho', t.optOrtho);
+    safeSetText('optUrgence', t.optUrgence);
+    safeSetText('optAutre', t.optAutre);
+    safeSetText('dateLabel', t.dateLabel);
+    safeSetText('messageLabel', t.messageLabel);
+    safeSetText('consentLabel', t.consentLabel);
+    safeSet('waFallbackText', t.waFallback);
+    safeSetText('submitBtn', t.submitBtn);
+
+    safeSet('contactTitle', t.contactTitle);
+    safeSet('addressLabel', t.addressLabel);
+    safeSet('phoneContactLabel', t.phoneContactLabel);
+    safeSet('emailLabel', t.emailLabel);
+    safeSet('hoursLabel', t.hoursLabel);
+    safeSetText('hoursText', t.hoursText);
+    safeSetText('quickMsgTitle', t.quickMsgTitle);
+    safeSetText('quickMsgLabel', t.quickMsgLabel);
+    safeSetText('quickSendBtn', t.quickSendBtn);
+
+    safeSetText('modalTitle', t.modalTitle);
+    safeSetText('modalSub', t.modalSub);
+
+    // Footer
+    safeSetText('footerTitle', t.footerTitle);
+    safeSet('footerAddress', t.footerAddress);
+    safeSetText('quickLinksTitle', t.quickLinksTitle);
+    safeSetText('footerServices', t.footerServices);
+    safeSetText('footerGallery', t.footerGallery);
+    safeSetText('footerRdv', t.footerRdv);
+    safeSetText('footerFaq', t.footerFaq);
+    safeSetText('legalTitle', t.legalTitle);
+    safeSetText('copyright', t.copyright);
+    safeSetText('credits', t.credits);
+    safeSetText('footerBottomText', t.footerBottomText);
+
+    safeSetText('heroTagline', t.heroTagline);
+    safeSetText('heroRdvBtn', t.heroRdvBtn);
+    safeSetText('heroUrgenceBtn', t.heroUrgenceBtn);
+    safeSetText('trustSafetyTitle', t.trustSafetyTitle);
+    safeSetText('trustSafetyDesc', t.trustSafetyDesc);
+    safeSetText('trustTechTitle', t.trustTechTitle);
+    safeSetText('trustTechDesc', t.trustTechDesc);
+    safeSetText('trustPatientsTitle', t.trustPatientsTitle);
+    safeSetText('trustPatientsDesc', t.trustPatientsDesc);
 
    
 
@@ -1587,18 +1919,18 @@ document.addEventListener('keydown', (e) => {
 (function() {
     // 1. Auto-save Form Draft
     const fieldIds = ['name', 'phone', 'type', 'date', 'message'];
-    fieldIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            // Restore draft if exists
-            const saved = window.localStorage.getItem(draft_);
-            if (saved) el.value = saved;
-            // Save on input
-            el.addEventListener('input', (e) => {
-                window.localStorage.setItem(draft_, e.target.value);
-            });
-        }
-    });
+fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        // Clé de stockage unique par champ (ex: draft_name)
+        const storageKey = 'draft_' + id;
+        const saved = window.localStorage.getItem(storageKey);
+        if (saved) el.value = saved;
+        el.addEventListener('input', (e) => {
+            window.localStorage.setItem(storageKey, e.target.value);
+        });
+    }
+});
 
     // 2. Parallax Header Effect
     window.addEventListener('scroll', () => {
@@ -1617,14 +1949,16 @@ document.addEventListener('keydown', (e) => {
     };
     
     // Inject safely into existing translations object
-    if (typeof translations !== 'undefined') {
+        // Dynamic Translation Injection for PWA (safe version)
+    if (typeof translations !== 'undefined' && translations) {
         for (const lang in pwaStrings) {
-            if (translations[lang]) {
+            if (translations[lang] && typeof translations[lang] === 'object') {
                 Object.assign(translations[lang], pwaStrings[lang]);
             }
         }
+    } else {
+        console.warn('translations not ready yet, PWA texts won’t be updated.');
     }
-
     // 4. PWA Installation Handler
     let deferredPrompt;
     const pwaBtn = document.getElementById('pwaInstallBtn');

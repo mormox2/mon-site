@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NVTHJGG0Z9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NVTHJGG0Z9');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PX7QHDCN');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="Cabinet Dentaire Dr Rtimi Mossaab - Soins dentaires modernes à El Hamma, Gabès.">
@@ -36,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.error('SW failed', err));
+                navigator.serviceWorker.register(new URL('sw.js', window.location.href)).catch(err => console.error('SW failed', err));
             });
         }
     </script>
@@ -46,13 +30,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:url" content="https://rtimidental.tn/">
     <meta property="og:title" content="Cabinet Dentaire Dr Rtimi Mossaab · El Hamma, Gabès">
     <meta property="og:description" content="Soins dentaires modernes à El Hamma : implants, CAD/CAM, esthétique E-max, orthodontie. Prenez rendez-vous en ligne.">
-    <meta property="og:image" content="https://rtimidental.tn/images/implants/implants-apres.png">
+    <meta property="og:image" content="https://rtimidental.tn/images/hero.webp">
     <meta property="og:site_name" content="Cabinet Dentaire Dr Rtimi Mossaab">
     <meta property="og:locale" content="fr_TN">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cabinet Dentaire Dr Rtimi Mossaab">
     <meta name="twitter:description" content="Soins dentaires modernes à El Hamma, Gabès.">
-    <meta name="twitter:image" content="https://rtimidental.tn/images/implants/implants-apres.png">
+    <meta name="twitter:image" content="https://rtimidental.tn/images/hero.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "description": "Cabinet dentaire moderne à El Hamma (Gabès) : implants, CAD/CAM exocad, esthétique, orthodontie, parodontologie.",
       "telephone": "+21623221454",
       "email": "contact@rtimidental.tn",
-      "image": "https://rtimidental.tn/images/implants/implants-apres.png",
+      "image": "https://rtimidental.tn/images/hero.webp",
       "priceRange": "$$",
       "availableLanguage": ["fr", "en", "ar"],
       "address": {
@@ -105,10 +89,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body id="appBody">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX7QHDCN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
     <!-- Conteneur pour les notifications toast -->
     <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
@@ -117,41 +97,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="#main" class="skip-link" id="skipLink">Accéder au contenu principal</a>
 
     <header>
+
+
+         <!-- Navigation principale redesignée -->
+<nav class="main-nav" aria-label="Navigation principale">
+    <!-- Marque -->
+    <div class="nav-brand">
+        <svg class="logo-svg" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+            <path d="M18.63,11.23c-0.18-1.55-0.19-2.92-0.54-4.26c-0.34-1.34-1.07-2.48-2.31-2.88c-1.24-0.4-2.52,0.14-3.51,0.85 C11.27,4.22,10,3.69,8.76,4.09c-1.24,0.4-1.97,1.54-2.31,2.88c-0.35,1.34-0.36,2.71-0.54,4.26c-0.18,1.55-1.41,2.94-1.41,4.77 c0,2.12,1.35,3.65,3.22,4c0.55,0.1,1.11,0.1,1.66,0c1.23-0.23,2.44-0.97,2.62-2.14c0.18,1.17,1.39,1.91,2.62,2.14 c0.55,0.1,1.11,0.1,1.66,0c1.87-0.35,3.22-1.88,3.22-4C19.5,14.17,18.81,12.78,18.63,11.23z" fill="white" />
+        </svg>
+        <span id="brandName">DR RTIMI MOSSAAB</span>
+    </div>
+
+    <!-- Bouton hamburger -->
+    <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- Actions regroupées (langues + thème) -->
+    <div class="nav-actions">
         <div class="lang-switch">
             <button class="lang-btn" data-lang="fr" id="langFr">🇫🇷 FR</button>
             <button class="lang-btn" data-lang="en" id="langEn">🇬🇧 EN</button>
             <button class="lang-btn" data-lang="ar" id="langAr">🇸🇦 عربي</button>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" aria-pressed="false">☀️</button>
-        <div class="logo-wrapper">
-            <svg class="logo-svg" viewBox="0 0 24 24" width="90" height="90" aria-hidden="true" focusable="false">
-                <path d="M18.63,11.23c-0.18-1.55-0.19-2.92-0.54-4.26c-0.34-1.34-1.07-2.48-2.31-2.88c-1.24-0.4-2.52,0.14-3.51,0.85 C11.27,4.22,10,3.69,8.76,4.09c-1.24,0.4-1.97,1.54-2.31,2.88c-0.35,1.34-0.36,2.71-0.54,4.26c-0.18,1.55-1.41,2.94-1.41,4.77 c0,2.12,1.35,3.65,3.22,4c0.55,0.1,1.11,0.1,1.66,0c1.23-0.23,2.44-0.97,2.62-2.14c0.18,1.17,1.39,1.91,2.62,2.14 c0.55,0.1,1.11,0.1,1.66,0c1.87-0.35,3.22-1.88,3.22-4C19.5,14.17,18.81,12.78,18.63,11.23z" fill="white" />
-            </svg>
-        </div>
-        <h1 id="headerTitle">Cabinet Dentaire Dr Rtimi Mossaab</h1>
-        <p id="headerSubtitle">L'excellence des soins dentaires modernes à El Hamma.</p>
-    </header>
-
-    <div class="sticky-cta">
-        <button type="button" class="cta-book" id="ctaBookBtn" aria-label="Prendre rendez-vous">📅 RDV</button>
-        <button type="button" class="cta-call" aria-label="Appeler le cabinet dentaire" onclick="window.location.href='tel:+21623221454'">📞</button>
     </div>
 
-    <nav aria-label="Navigation principale">
-        <button type="button" class="hamburger" id="hamburger" aria-label="Ouvrir le menu de navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
-        <div class="nav-links" id="navLinks">
-            <a href="#about" id="navAbout">À propos</a>
-            <a href="#services" id="navServices">Services</a>
-            <a href="#testimonials" id="navTestimonials">Avis</a>
-            <a href="#gallery" id="navGallery">Galerie</a>
-            <a href="#videos" id="navVideos">Vidéos</a>
-            <a href="#blog" id="navBlog">Actualités</a>
-            <a href="#kb" id="navKb">Guides</a>
-            <a href="#faq" id="navFaq">FAQ</a>
-            <a href="#rdv" id="navRdv">Rendez-vous</a>
-            <a href="#contact" id="navContact">Contact</a>
+    <!-- Menu déroulant -->
+    <div class="nav-links" id="navLinks">
+        <a href="#about" id="navAbout">À propos</a>
+        <a href="#services" id="navServices">Services</a>
+        <a href="#testimonials" id="navTestimonials">Avis</a>
+        <a href="#gallery" id="navGallery">Galerie</a>
+        <a href="#videos" id="navVideos">Vidéos</a>
+        <a href="#blog" id="navBlog">Actualités</a>
+        <a href="#kb" id="navKb">Guides</a>
+        <a href="#faq" id="navFaq">FAQ</a>
+        <a href="#rdv" id="navRdv">Rendez-vous</a>
+        <a href="#contact" id="navContact">Contact</a>
+        <!-- Boutons d’action (remplacent le sticky-cta) -->
+        <a href="#rdv" class="nav-action-btn cta-book" id="ctaBookBtn">📅 RDV</a>
+        <a href="tel:+21623221454" class="nav-action-btn cta-call" aria-label="Appeler le cabinet">📞</a>
+    </div>
+</nav>
+
+    <!-- Hero (le bloc "CABINET DENTAIRE..." avec accroche) -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-presentation">
+                <h1 id="headerTitle">Cabinet Dentaire Dr Rtimi Mossaab</h1>
+                <p id="headerSubtitle" class="hero-subtitle">L'excellence des soins dentaires modernes à El Hamma.</p>
+                <p id="heroTagline" class="hero-tagline">Des soins dentaires modernes et personnalisés pour toute la famille à El Hamma.</p>
+                <div class="hero-buttons">
+                    <a href="#rdv" class="hero-btn-primary" id="heroRdvBtn">Prendre rendez-vous</a>
+                    <a href="#contact" class="hero-btn-secondary" id="heroUrgenceBtn">Urgences & Informations</a>
+                </div>
+            </div>
+            <!-- Barre de confiance déplacée dans le Hero -->
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="trust-icon">🛡️</span>
+                    <strong id="trustSafetyTitle">Soins sécurisés</strong>
+                    <small id="trustSafetyDesc">Hygiène & sécurité certifiées</small>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🖥️</span>
+                    <strong id="trustTechTitle">Technologie de pointe</strong>
+                    <small id="trustTechDesc">Équipements modernes</small>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">😊</span>
+                    <strong id="trustPatientsTitle">+500 Patients satisfaits</strong>
+                    <small id="trustPatientsDesc">Confiance & expérience</small>
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
+        
+    
+ </header>
+
+    
+
+    
 
     <div class="search-container" role="search" aria-label="Recherche sur le site">
         <div class="container">
