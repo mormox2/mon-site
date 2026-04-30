@@ -20,10 +20,11 @@
     <link rel="manifest" href="manifest.json">
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register(new URL('sw.js', window.location.href)).catch(err => console.error('SW failed', err));
-            });
-        }
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register(new URL('sw.js', window.location.href))
+            .catch(err => console.error('SW failed', err));
+    });
+}
     </script>
 
     <!-- Open Graph -->
