@@ -1,3 +1,5 @@
+import { currentLang, getCurrentTranslation, showToast } from '../core/i18n.js';
+
 // ==================== RECHERCHE AMÉLIORÉE ====================
 function performSearch(e) {
     if (e) e.preventDefault();

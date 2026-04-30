@@ -1,0 +1,269 @@
+/* ==================== RECHERCHE ==================== */
+.search-container {
+  padding: 2rem 0 1rem;
+  background: linear-gradient(180deg, var(--bg-light) 0%, transparent 100%);
+  position: relative;
+  z-index: 10;
+}
+
+.search-bar {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: var(--shadow);
+  border-radius: 50px;
+  background: var(--surface-light);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+html[dir="rtl"] .search-bar {
+  flex-direction: row;
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 15px 35px -5px rgba(3, 105, 161, 0.2);
+  transform: translateY(-2px);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text-light);
+  outline: none;
+  font-family: inherit;
+}
+
+.search-bar button {
+  margin: 6px;
+  padding: 0 1.2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.search-bar button:hover {
+  background: var(--secondary);
+  transform: scale(1.05);
+}
+
+body.dark-mode .search-bar {
+  background: var(--surface-dark);
+}
+
+body.dark-mode .search-bar input {
+  color: var(--text-dark);
+}
+
+/* ==================== PRÉSENTATION ==================== */
+.about-card {
+  background: var(--surface-light);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow);
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Prevent inner content from causing scrollbars */
+}
+
+body.dark-mode .about-card {
+  background: var(--surface-dark);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.about-highlight {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.about-highlight strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+body.dark-mode .about-highlight {
+  color: var(--text-dark);
+}
+
+.about-subtext {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+body.dark-mode .about-subtext {
+  color: #94a3b8;
+}
+
+/* ==================== UI/UX AMÉLIORATIONS (SKELETONS, PARALLAX, ANIMATIONS) ==================== */
+/* Skeleton Loaders pour les images au chargement */
+.skeleton {
+  background-color: var(--surface-dark);
+  /* Gris doux */
+  background-image: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.1) 25%,
+      rgba(255, 255, 255, 0.2) 37%,
+      rgba(255, 255, 255, 0.1) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Parallax Effect sur le header */
+header {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* transition is controlled via JS */
+}
+
+/* WhatsApp Micro-animation (Pulsation) */
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.chat-btn.whatsapp {
+  animation: whatsapp-pulse 2.5s infinite ease-in-out;
+}
+
+.chat-btn.whatsapp:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+/* ==================== PWA INSTALL BUTTON ==================== */
+.pwa-install-btn {
+  background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+  color: white;
+  border: 1px solid #047857;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 15px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.pwa-install-btn:hover {
+  background: linear-gradient(180deg, #6ee7b7 0%, #10b981 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(16, 185, 129, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pwa-install-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation pour attirer l'attention sur le bouton d'installation */
+@keyframes pwa-pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  }
+
+  50% {
+    box-shadow:
+      0 4px 25px rgba(16, 185, 129, 0.7),
+      0 0 0 8px rgba(16, 185, 129, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  }
+}
+
+.pwa-install-btn {
+  animation: pwa-pulse 2.5s infinite ease-in-out;
+}
+
+.pwa-install-btn:hover {
+  animation: none;
+}
+
+.pwa-ios-instructions {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.pwa-ios-instructions p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+html[dir="rtl"] .pwa-ios-instructions {
+  text-align: right;
+}
+

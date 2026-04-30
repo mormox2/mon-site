@@ -1,0 +1,37 @@
+/* Chat flottant */
+.chat-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 999;
+}
+
+body.rtl .chat-buttons {
+  right: auto;
+  left: 20px;
+}
+
+.chat-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.messenger {
+  background: #0084ff;
+  color: white;
+}

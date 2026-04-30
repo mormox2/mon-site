@@ -1,0 +1,14 @@
+/* ========== TYPOGRAPHY ========== */
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--primary-light);
+  display: block;
+  padding-bottom: 10px;
+}
+
+body.dark-mode h2 {
+  color: var(--text-dark);
+}

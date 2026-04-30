@@ -1,3 +1,6 @@
+import { currentLang, getCurrentTranslation } from '../core/i18n.js';
+import { removeTrapFocus, trapFocus } from '../utils/focus-trap.js';
+
 // ==================== MODALES ARTICLES / GUIDES ====================
 window.openArticleModal = function(index) {
     const t = getCurrentTranslation();
@@ -46,4 +49,3 @@ document.addEventListener('keydown', (e) => {
         closeArticleModal();
     }
 });
-

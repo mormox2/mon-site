@@ -1,0 +1,553 @@
+/* ===== RÉVÉLATION AU SCROLL (REVEAL) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Dégradation gracieuse : si JavaScript est désactivé, tous les éléments restent visibles */
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(3, 105, 161, 0.4);
+  z-index: 998;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+#backToTop:hover {
+  transform: translateY(-3px);
+}
+
+body.rtl #backToTop {
+  right: auto;
+  left: 20px;
+}
+
+.hours-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.hours-badge.open {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.hours-badge.closed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+body.rtl .hours-badge {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(3, 105, 161, 0.45);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+#chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+body.rtl #chatbot-toggle {
+  left: auto;
+  right: 20px;
+}
+
+#chatbot-box {
+  position: fixed;
+  bottom: 90px;
+  left: 20px;
+  width: 300px;
+  max-height: 430px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.18);
+  z-index: 1001;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#chatbot-box.open {
+  display: flex;
+  animation: chatIn 0.3s ease;
+}
+
+body.dark-mode #chatbot-box {
+  background: #2a2a3e;
+}
+
+body.rtl #chatbot-box {
+  left: auto;
+  right: 20px;
+}
+
+@keyframes chatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.chatbot-close {
+  cursor: pointer;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  color: white;
+  line-height: 1;
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bot-msg,
+.user-msg {
+  max-width: 88%;
+  padding: 10px 13px;
+  border-radius: 15px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.bot-msg {
+  background: #f1f5f9;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+body.dark-mode .bot-msg {
+  background: #404054;
+  color: var(--text-dark);
+}
+
+.user-msg {
+  background: var(--primary);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chatbot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+body.dark-mode .chatbot-options {
+  border-color: #505070;
+}
+
+.chatbot-opt {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatbot-opt:hover {
+  background: var(--primary-dark);
+}
+
+/* =========================================
+   ANIMATIONS SECTION TECHNOLOGIE (#tech)
+   ========================================= */
+
+/* 1. Animation de pulsation sur le badge "Innovation" */
+#tech .section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  animation: tech-pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes tech-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(3, 105, 161, 0.3);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(3, 105, 161, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(3, 105, 161, 0);
+  }
+}
+
+/* 2. Préparation des cartes pour l'animation */
+#tech .card {
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s ease;
+}
+
+/* Effet lorsque la souris passe sur une carte (Soulèvement + Ombre) */
+#tech .card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(3, 105, 161, 0.15);
+}
+
+/* 3. Préparation des icônes (🖥️, 🔬, 🩸) */
+#tech .card .icon {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Effet "ressort" */
+}
+
+/* Effet sur l'icône quand on survole la carte (Grossissement + Rotation) */
+#tech .card:hover .icon {
+  transform: scale(1.3) rotate(8deg);
+}
+
+/* .article-text est géré uniquement via .tech-card .article-text ci-dessous */
+
+.card h3 {
+  color: #0369a1;
+  margin-bottom: 10px;
+}
+
+/* ===== SECTION TECHNOLOGIE – AFFICHAGE AU CLIC ===== */
+.tech-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tech-card .article-text {
+  display: none;
+  /* Caché par défaut */
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.tech-card.expanded .article-text {
+  display: block;
+  /* Affiché quand la carte est "expanded" */
+}
+
+body.dark-mode .tech-card .article-text {
+  border-top-color: #475569;
+  color: #cbd5e1;
+}
+
+body.rtl .tech-card .article-text {
+  text-align: right;
+}
+
+/* Améliorations de contraste pour le mode sombre */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #b0bec5 !important;
+  /* Plus sombre et lisible */
+  opacity: 1;
+}
+
+body.dark-mode footer a {
+  color: #90caf9;
+  text-decoration: underline;
+}
+
+body.dark-mode footer a:hover {
+  color: #bbdefb;
+}
+
+body.dark-mode form label {
+  color: #7abff7;
+}
+
+body.dark-mode .hours-badge.open {
+  background: #14532d;
+  color: #dcfce7;
+}
+
+body.dark-mode .hours-badge.closed {
+  background: #7f1d1d;
+  color: #fee2e2;
+}
+
+/* Ajustement du contraste des titres de FAQ en mode sombre */
+body.dark-mode .faq-title {
+  color: #7abff7;
+}
+
+/* ===== CLASSE POUR LECTEURS D'ÉCRAN (SR-ONLY) ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== AMÉLIORATION DES STYLES DE FOCUS POUR ACCESSIBILITÉ ===== */
+:focus-visible {
+  outline: 3px solid #0ea5e9 !important;
+  outline-offset: 4px !important;
+  border-radius: 4px;
+}
+
+img:focus-visible,
+div:not([tabindex]):focus-visible,
+section:focus-visible {
+  outline: none !important;
+}
+
+.lang-btn:focus-visible,
+.theme-toggle:focus-visible {
+  outline-color: white !important;
+  outline-offset: 2px !important;
+}
+
+body.dark-mode :focus-visible {
+  outline-color: #38bdf8 !important;
+}
+
+body.dark-mode .lang-btn:focus-visible,
+body.dark-mode .theme-toggle:focus-visible {
+  outline-color: #fbbf24 !important;
+}
+
+.chatbot-opt:focus-visible {
+  outline: 3px solid #10b981;
+  outline-offset: 2px;
+  background: #0c4a6e;
+  border-radius: 8px;
+}
+
+/* ===== SYSTÈME DE NOTIFICATIONS TOAST ===== */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  width: calc(100% - 40px);
+  pointer-events: none;
+}
+
+body.rtl .toast-container {
+  right: auto;
+  left: 20px;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.3s ease;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  border-left: 5px solid;
+  background: white;
+  color: #1e293b;
+}
+
+body.dark-mode .toast {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+.toast.success {
+  border-left-color: #10b981;
+}
+
+.toast.error {
+  border-left-color: #ef4444;
+}
+
+.toast.info {
+  border-left-color: #3b82f6;
+}
+
+.toast.warning {
+  border-left-color: #f59e0b;
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.toast-content {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+body.rtl .toast {
+  animation: slideInRtl 0.3s ease;
+  border-left: none;
+  border-right: 5px solid;
+}
+
+@keyframes slideInRtl {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast.hiding {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+body.rtl .toast.hiding {
+  transform: translateX(-100%);
+}
+
+body.dark-mode .card h3 {
+  color: var(--primary-light);
+}
+
+body.dark-mode .article-text {
+  border-top-color: #475569;
+}
+
+body.dark-mode .gmb-stat-number {
+  color: var(--primary-light);
+}
+
+body.dark-mode .gmb-link a {
+  background: var(--primary-light);
+  color: #0f172a;
+  font-weight: 700;
+}
+

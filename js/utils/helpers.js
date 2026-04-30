@@ -1,5 +1,3 @@
-import { setLanguage, currentLang } from '../core/i18n.js';
-
 // Helper functions to prevent crashes if IDs are missing
 function safeSet(id, html) {
     const el = document.getElementById(id);
@@ -84,7 +82,7 @@ function getMailFallbackNotice(lang) {
 }
 
 function openMailtoFallback(link, lang) {
-    showToast(getMailFallbackNotice(lang), 'warning', 6000);
+    window.showToast?.(getMailFallbackNotice(lang), 'warning', 6000);
     window.location.href = link;
 }
 
@@ -102,42 +100,7 @@ function openMailtoFallback(link, lang) {
 })();
 
 
-// Scroll vers le formulaire RDV au clic sur le bouton CTA
-document.getElementById('ctaBookBtn')?.addEventListener('click', () => {
-    document.getElementById('rdv').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Écouteurs de langue
-document.getElementById('langFr').addEventListener('click', () => setLanguage('fr'));
-document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
-document.getElementById('langAr').addEventListener('click', () => setLanguage('ar'));
-
-window.addEventListener('load', () => {
-    setLanguage(currentLang);
-});
-
-// ==================== FORMULAIRE DE RENDEZ-VOUS (SÉCURISÉ) ====================
-const form = document.getElementById('appointmentForm');
-const submitBtn = document.getElementById('submitBtn');
-const phoneInput = document.getElementById('phone');
-const phoneValidation = document.getElementById('phone-validation');
-const dateInput = document.getElementById('date');
-const errorDiv = document.getElementById('formError');
-const confirmationModal = document.getElementById('confirmationModal');
-const modalMessage = document.getElementById('modalMessage');
-const modalClose = confirmationModal.querySelector('.modal-close');
-
-if (dateInput && isFlatpickrAvailable()) {
-    flatpickr(dateInput, {
-        locale: getFlatpickrLocale(currentLang) || flatpickr.l10ns.default,
-        minDate: 'today',
-        dateFormat: 'd/m/Y',
-        allowInput: true
-    });
-} else if (dateInput) {
-    console.warn('Flatpickr unavailable; using the text date input fallback.');
-}
-
 export { safeSet, safeSetText, readFromStorage, writeToStorage, parseSubmissionTracker, isEmailJsAvailable, isFlatpickrAvailable, getFlatpickrLocale, buildMailtoLink, getMailFallbackNotice, openMailtoFallback };
 
 window.safeSet = safeSet; window.safeSetText = safeSetText; window.readFromStorage = readFromStorage; window.writeToStorage = writeToStorage;
+

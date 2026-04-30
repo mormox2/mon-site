@@ -1,3 +1,5 @@
+import { getCurrentTranslation, showToast } from '../core/i18n.js';
+
 // ==================== IMPROVEMENTS & PWA LOGIC ====================
 (function() {
     // 1. Auto-save Form Draft
@@ -65,7 +67,7 @@ fieldIds.forEach(id => {
 
     if (pwaBtn) {
         pwaBtn.addEventListener('click', async () => {
-            const t = typeof getCurrentTranslation === 'function' ? getCurrentTranslation() : translations[document.documentElement.lang] || translations.fr;
+            const t = getCurrentTranslation();
             
             // iOS : afficher le guide d'installation
             if (isIos()) {
@@ -107,10 +109,11 @@ fieldIds.forEach(id => {
         if (btn) {
             btn.addEventListener('click', () => {
                 setTimeout(() => {
-                    const t = typeof getCurrentTranslation === 'function' ? getCurrentTranslation() : translations[document.documentElement.lang] || translations.fr;
+                    const t = getCurrentTranslation();
                     if (pwaBtnText) pwaBtnText.textContent = t.pwaBtnText;
                 }, 50);
             });
         }
     });
 })();
+
