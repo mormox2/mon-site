@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Cabinet Dentaire Dr Rtimi Mossaab - Soins dentaires modernes à El Hamma, Gabès.">
+    <meta name="theme-color" content="#0369a1">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Dr Rtimi Mossaab">
+    <link rel="canonical" href="https://rtimidental.tn/">
+
+    <!-- Amélioration SEO : Balises hreflang dynamiques -->
+    <link rel="alternate" hreflang="fr" href="https://rtimidental.tn/" />
+    <link rel="alternate" hreflang="ar" href="https://rtimidental.tn/?lang=ar" />
+    <link rel="alternate" hreflang="en" href="https://rtimidental.tn/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://rtimidental.tn/" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/assets/manifest-BbZiJHPx.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register(new URL('sw.js', window.location.href)).catch(err => console.error('SW failed', err));
+            });
+        }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rtimidental.tn/">
+    <meta property="og:title" content="Cabinet Dentaire Dr Rtimi Mossaab · El Hamma, Gabès">
+    <meta property="og:description"
+        content="Soins dentaires modernes à El Hamma : implants, CAD/CAM, esthétique E-max, orthodontie. Prenez rendez-vous en ligne.">
+    <meta property="og:image" content="https://rtimidental.tn/images/hero.webp">
+    <meta property="og:site_name" content="Cabinet Dentaire Dr Rtimi Mossaab">
+    <meta property="og:locale" content="fr_TN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cabinet Dentaire Dr Rtimi Mossaab">
+    <meta name="twitter:description" content="Soins dentaires modernes à El Hamma, Gabès.">
+    <meta name="twitter:image" content="https://rtimidental.tn/images/hero.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script>
+        // Supprime la classe "no-js" immédiatement pour indiquer que JS fonctionne
+        document.documentElement.classList.remove('no-js');
+    </script>
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Cabinet Dentaire Dr Rtimi Mossaab",
+      "url": "https://rtimidental.tn",
+      "description": "Cabinet dentaire moderne à El Hamma (Gabès) : implants, CAD/CAM exocad, esthétique, orthodontie, parodontologie.",
+      "telephone": "+21623221454",
+      "email": "contact@rtimidental.tn",
+      "image": "https://rtimidental.tn/images/hero.webp",
+      "priceRange": "$$",
+      "availableLanguage": ["fr", "en", "ar"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Immeuble Bouchlaka",
+        "addressLocality": "El Hamma",
+        "addressRegion": "Gabès",
+        "postalCode": "6020",
+        "addressCountry": "TN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 33.8884397, "longitude": 9.7966341 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+      ],
+      "sameAs": ["https://www.facebook.com/share/1c1KFnvy1m/"],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "180" }
+    }
+    </script>
+
+    <title>Cabinet Dentaire Dr Rtimi Mossaab | Dentiste à El Hamma, Gabès</title>
+
+    <link rel="icon" href="/assets/favicon-32-BHwzn7bf.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/icon-192-Bd2gaq7R.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script type="module" crossorigin src="/assets/index-Chlpr9K_.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CWROyiLm.css">
+</head>
+
+<body id="appBody">
+
+    <!-- Conteneur pour les notifications toast -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="readingProgress" aria-hidden="true"></div>
+    <a href="#main" class="skip-link" id="skipLink">Accéder au contenu principal</a>
+
+    <header>
+
+
+        <!-- Navigation principale redesignée -->
+        <nav class="main-nav" aria-label="Navigation principale">
+            <!-- Marque -->
+            <div class="nav-brand">
+                <svg class="logo-svg" viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+                    <path
+                        d="M18.63,11.23c-0.18-1.55-0.19-2.92-0.54-4.26c-0.34-1.34-1.07-2.48-2.31-2.88c-1.24-0.4-2.52,0.14-3.51,0.85 C11.27,4.22,10,3.69,8.76,4.09c-1.24,0.4-1.97,1.54-2.31,2.88c-0.35,1.34-0.36,2.71-0.54,4.26c-0.18,1.55-1.41,2.94-1.41,4.77 c0,2.12,1.35,3.65,3.22,4c0.55,0.1,1.11,0.1,1.66,0c1.23-0.23,2.44-0.97,2.62-2.14c0.18,1.17,1.39,1.91,2.62,2.14 c0.55,0.1,1.11,0.1,1.66,0c1.87-0.35,3.22-1.88,3.22-4C19.5,14.17,18.81,12.78,18.63,11.23z"
+                        fill="white" />
+                </svg>
+                <span id="brandName">DR RTIMI MOSSAAB</span>
+            </div>
+
+            <!-- Bouton hamburger -->
+            <button type="button" class="hamburger" id="hamburger" aria-label="Menu" aria-controls="navLinks"
+                aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <!-- Actions regroupées (langues + thème) -->
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="fr" id="langFr">🇫🇷 FR</button>
+                    <button class="lang-btn" data-lang="en" id="langEn">🇬🇧 EN</button>
+                    <button class="lang-btn" data-lang="ar" id="langAr">🇸🇦 عربي</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème"
+                    aria-pressed="false">☀️</button>
+            </div>
+
+            <!-- Menu déroulant -->
+            <div class="nav-links" id="navLinks">
+                <a href="#about" id="navAbout">À propos</a>
+                <a href="#services" id="navServices">Services</a>
+                <a href="#testimonials" id="navTestimonials">Avis</a>
+                <a href="#gallery" id="navGallery">Galerie</a>
+                <a href="#videos" id="navVideos">Vidéos</a>
+                <a href="#blog" id="navBlog">Actualités</a>
+                <a href="#kb" id="navKb">Guides</a>
+                <a href="#faq" id="navFaq">FAQ</a>
+                <a href="#rdv" id="navRdv">Rendez-vous</a>
+                <a href="#contact" id="navContact">Contact</a>
+                <!-- Boutons d’action (remplacent le sticky-cta) -->
+                <a href="#rdv" class="nav-action-btn cta-book" id="ctaBookBtn">📅 RDV</a>
+                <a href="tel:+21623221454" class="nav-action-btn cta-call" aria-label="Appeler le cabinet">📞</a>
+            </div>
+        </nav>
+
+        <!-- Hero (le bloc "CABINET DENTAIRE..." avec accroche) -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-presentation">
+                    <h1 id="headerTitle">Cabinet Dentaire Dr Rtimi Mossaab</h1>
+                    <p id="headerSubtitle" class="hero-subtitle">L'excellence des soins dentaires modernes à El Hamma.
+                    </p>
+                    <p id="heroTagline" class="hero-tagline">Des soins dentaires modernes et personnalisés pour toute la
+                        famille à El Hamma.</p>
+                    <div class="hero-buttons">
+                        <a href="#rdv" class="hero-btn-primary" id="heroRdvBtn">Prendre rendez-vous</a>
+                        <a href="#contact" class="hero-btn-secondary" id="heroUrgenceBtn">Urgences & Informations</a>
+                    </div>
+                </div>
+                <!-- Barre de confiance -->
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <span class="trust-icon">🛡️</span>
+                        <strong id="trustSafetyTitle">Soins sécurisés</strong>
+                        <small id="trustSafetyDesc">Hygiène & sécurité certifiées</small>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🖥️</span>
+                        <strong id="trustTechTitle">Technologie de pointe</strong>
+                        <small id="trustTechDesc">Équipements modernes</small>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">😊</span>
+                        <strong id="trustPatientsTitle">+500 Patients satisfaits</strong>
+                        <small id="trustPatientsDesc">Confiance & expérience</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+
+
+
+
+    <div class="search-container" role="search" aria-label="Recherche sur le site">
+        <div class="container">
+            <form class="search-bar" onsubmit="return false;">
+                <input type="search" id="siteSearch" name="q" autocomplete="off" enterkeyhint="search"
+                    aria-label="Rechercher dans le site" placeholder="Rechercher sur rtimidental.tn...">
+                <button type="submit" id="searchButton" aria-label="Lancer la recherche">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <main id="main">
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+                <h2 id="aboutTitle">Présentation</h2>
+                <div class="about-card">
+                    <p id="aboutText1" class="about-highlight">Bienvenue sur <strong>rtimidental.tn</strong>. Le cabinet
+                        du Dr Mossaab Rtimi vous accueille pour des soins de haute qualité.</p>
+                    <p id="aboutText2" style="display: none;"></p>
+                    <p id="aboutText3" class="about-subtext">Situé à El Hamma (Gabès), notre cabinet allie expertise,
+                        technologie de pointe (CAD/CAM, PRF, implants premium) et accueil chaleureux.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+            <div class="container">
+                <h2 id="servicesTitle">Services</h2>
+                <div class="services" id="servicesList"></div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="tech" class="reveal" style="background: rgba(3, 105, 161, 0.02); padding: 60px 0;">
+            <div class="container" style="text-align: center;">
+                <span class="section-badge" id="techBadge">Innovation</span>
+                <h2 id="techTitle">Technologie & Précision</h2>
+                <div class="services" id="techGrid"></div>
+            </div>
+        </section>
+
+        <!-- Avis -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 id="testimonialsTitle">Avis Patients</h2>
+                <div class="gmb-reviews-container">
+                    <div class="gmb-info">
+                        <div class="gmb-stat">
+                            <div class="gmb-stat-number" data-count="4.9" data-suffix="/5" data-decimals="1">4.9/5</div>
+                            <div class="gmb-stat-label" id="googleRatingLabel">Note Google</div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <div class="gmb-stat">
+                            <div class="gmb-stat-number" data-count="180" data-suffix="+">180+</div>
+                            <div class="gmb-stat-label" id="reviewsCountLabel">Avis Vérifiés</div>
+                        </div>
+                        <div class="gmb-stat">
+                            <div class="gmb-stat-number" data-count="95" data-suffix="%">95%</div>
+                            <div class="gmb-stat-label" id="satisfactionLabel">Satisfaction</div>
+                        </div>
+                    </div>
+                    <div class="gmb-link"><a href="https://maps.app.goo.gl/g2iBjUYsTpSAAC7A8" target="_blank"
+                            rel="noopener noreferrer" id="gmbLink">📍 Voir tous les avis sur Google Maps</a></div>
+                </div>
+                <div class="testimonials-grid" id="testimonialsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Galerie Photos -->
+        <section id="gallery">
+            <div class="container">
+                <h2 id="galleryTitle">Galerie Photos</h2>
+                <div class="photo-gallery" id="photoGallery"></div>
+            </div>
+        </section>
+
+        <!-- Vidéos -->
+        <section id="videos">
+            <div class="container">
+                <h2 id="videosTitle">Vidéos</h2>
+                <div class="videos-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 30px; justify-content: center;">
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/CbeeSoCFXVw"
+                            title="وداعاً لأسلاك التقويم! كيف تحصل على أسنان مثالية دون أن يلاحظ أحد؟" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/LnGbupvJZnU"
+                            title="زراعة الأسنان في 20 ثانية.. هكذا تستعيد ابتسامتك! 😁" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-card" style="width: 100%; max-width: 350px; margin: 0 auto; aspect-ratio: 9/16;">
+                        <iframe loading="lazy" style="width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/CxUcrUe_p4M"
+                            title="هل تنزف لثتك عند تنظيف أسنانك؟ إليك الحل النهائي! ⚠️" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog">
+            <div class="container">
+                <h2 id="blogTitle">Actualités & Conseils</h2>
+                <div class="blog-grid" id="blogGrid"></div>
+            </div>
+        </section>
+
+        <!-- Guides -->
+        <section id="kb">
+            <div class="container">
+                <h2 id="kbTitle">Guides Patients</h2>
+                <div class="kb-grid" id="kbGrid"></div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <h2 id="faqTitle">FAQ</h2>
+                <div class="faq-container" id="faqContainer"></div>
+            </div>
+        </section>
+
+        <!-- Rendez-vous -->
+        <section id="rdv">
+            <div class="container">
+                <h2 id="rdvTitle">Prendre Rendez-vous</h2>
+                <form id="appointmentForm" aria-describedby="formError" style="position: relative;">
+                    <div class="error-message" id="formError" role="alert" aria-live="assertive"></div>
+                    <div class="form-group">
+                        <label id="nameLabel" for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                        <label id="phoneLabel" for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span id="phone-validation" class="validation-icon" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label id="typeLabel" for="type">Type de consultation *</label>
+                        <select id="type" name="type" required>
+                            <option value="" id="selectDefault">Choisir...</option>
+                            <option value="implant" id="optImplant">Implantologie</option>
+                            <option value="esthetique" id="optEsthetique">Esthétique</option>
+                            <option value="ortho" id="optOrtho">Orthodontie</option>
+                            <option value="urgence" id="optUrgence">Urgence</option>
+                            <option value="autre" id="optAutre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="dateLabel" for="date">Date souhaitée *</label>
+                        <input type="text" id="date" name="date" placeholder="jj/mm/aaaa" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="messageLabel" for="message">Message / Motif</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent" id="consentLabel">J'accepte que mes données soient utilisées pour me
+                            recontacter dans le cadre de ma demande de rendez-vous.</label>
+                    </div>
+
+                    <!-- Champ anti-spam (honeypot) -->
+                    <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+                        <label for="website2">Laissez ce champ vide</label>
+                        <input type="text" id="website2" name="website2" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button type="submit" id="submitBtn">Envoyer la demande de RDV</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <h2 id="contactTitle">Contact</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px;">
+                    <div>
+                        <p><strong id="addressLabel">📍 Adresse :</strong> Immeuble Bouchlaka, El Hamma, Gabès 6020</p>
+                        <p><strong id="phoneContactLabel">📞 Téléphone :</strong> <a href="tel:+21623221454">+216 23 221
+                                454</a></p>
+                        <p><strong id="emailLabel">✉️ Email :</strong> <a
+                                href="mailto:contact@rtimidental.tn">contact@rtimidental.tn</a></p>
+                        <p><strong id="hoursLabel">🕒 Horaires :</strong> <span id="hoursText">Lundi – Vendredi : 08h00
+                                – 18h00, Samedi : 08h00 – 13h00</span><span id="hoursStatus" class="hours-badge"
+                                role="status" aria-live="polite"></span></p>
+
+                        <iframe title="Plan d'accès au cabinet dentaire Dr Rtimi Mossaab"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.047141400753!2d9.79444537617206!3d33.88843972636112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12559b9bc62c6c87%3A0x2c3c26305257c8d1!2scabinet%20dentaire%20Dr%20RTIMI%20Mossaab!5e0!3m2!1sfr!2stn!4v1775062075264!5m2!1sfr!2stn"
+                            width="100%" height="350" style="border:0; border-radius: 15px; margin-top: 20px;"
+                            loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div>
+                        <h3 id="quickMsgTitle" style="margin-bottom:20px; color:#0369a1;">Nous écrire directement</h3>
+                        <form id="quickContactForm" style="max-width:none;" aria-labelledby="quickMsgTitle">
+                            <div class="form-group">
+                                <label id="quickMsgLabel" for="quickMessage">Votre message</label>
+                                <textarea id="quickMessage" name="message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" id="quickSendBtn">Envoyer</button>
+                            <!-- Champ anti-spam (honeypot) -->
+                            <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+                                <label for="honeypot-contact">Laissez ce champ vide</label>
+                                <input type="text" id="honeypot-contact" name="website3" tabindex="-1"
+                                    autocomplete="off">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Chat flottant -->
+    <div class="chat-buttons">
+        <a href="https://wa.me/21623221454?text=Bonjour%20Dr%20Rtimi" target="_blank" rel="noopener noreferrer"
+            class="chat-btn whatsapp" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+        <a href="https://m.me/100047671283618?text=Bonjour,%20je%20souhaiterais%20prendre%20rendez-vous."
+            target="_blank" rel="noopener noreferrer" class="chat-btn messenger" aria-label="Messenger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76zm5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Retour en haut -->
+    <button type="button" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- Chatbot -->
+    <button type="button" id="chatbot-toggle" aria-label="Assistant virtuel" aria-controls="chatbot-box"
+        aria-expanded="false">🤖</button>
+    <div id="chatbot-box" role="dialog" aria-label="Assistant virtuel" aria-modal="true" aria-hidden="true">
+        <div class="chatbot-header">
+            <span id="chatbot-title">🦷 Assistant Dr Rtimi</span>
+            <button type="button" class="chatbot-close" id="chatbot-close" aria-label="Fermer">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages" role="log" aria-live="polite"></div>
+        <div class="chatbot-options" id="chatbot-options"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu de l'image"
+        aria-hidden="true">
+        <button type="button" class="lightbox-close" aria-label="Fermer l'aperçu">&times;</button>
+        <button type="button" class="lightbox-prev" aria-label="Image précédente">❮</button>
+        <button type="button" class="lightbox-next" aria-label="Image suivante">❯</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- Modal confirmation & Fallback Email -->
+    <div id="confirmationModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+        aria-describedby="modalMessage modalSub" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="modal-close" aria-label="Fermer la confirmation">&times;</button>
+            <h3 id="modalTitle">✅ Rendez-vous confirmé</h3>
+            <p id="modalMessage" role="status" aria-live="polite"></p>
+            <p id="modalSub">Nous vous contacterons sous 24h.</p>
+            <p class="wa-fallback-text" id="waFallbackText"></p>
+        </div>
+    </div>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle"
+        aria-describedby="articleModalBody" aria-hidden="true">
+        <div class="article-modal-content">
+            <button type="button" class="modal-close" id="articleModalClose"
+                aria-label="Fermer l'article">&times;</button>
+            <h2 id="articleModalTitle"
+                style="border: none; padding: 0; margin-bottom: 5px; font-size: 1.8rem; display: block;"></h2>
+            <p id="articleModalDate"
+                style="color: var(--primary); font-weight: 600; margin-bottom: 25px; font-size: 0.9rem; display: block; text-align: inherit;">
+            </p>
+            <div id="articleModalBody" class="article-body" style="line-height: 1.8;"></div>
+        </div>
+    </div>
+
+    <!-- PWA iOS Modal -->
+    <div id="pwaIosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="pwaIosTitle"
+        aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="pwaIosClose" aria-label="Fermer">&times;</button>
+            <h3 id="pwaIosTitle">📲 Installer sur iPhone</h3>
+            <div class="pwa-ios-instructions">
+                <p id="pwaIosStep1">1. Appuyez sur le bouton <strong>Partager</strong> <svg viewBox="0 0 24 24"
+                        width="20" height="20" style="vertical-align: middle; fill: var(--primary);">
+                        <path
+                            d="M16 5l-1.42 1.42-1.59-1.59V16h-1.98V4.83L9.42 6.42 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2 .9 2 2z" />
+                    </svg> en bas de l'écran.</p>
+                <p id="pwaIosStep2">2. Faites défiler et choisissez <strong>"Sur l'écran d'accueil"</strong> <span
+                        style="font-size: 1.2rem;">⊕</span>.</p>
+                <p id="pwaIosStep3">3. Cliquez sur <strong>Ajouter</strong> en haut à droite.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 id="footerTitle">Cabinet Dentaire Dr Rtimi Mossaab</h3>
+                    <p id="footerAddress">Immeuble Bouchlaka<br>El Hamma, Gabès 6020<br>Tunisie</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1c1KFnvy1m/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                                <path
+                                    d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.38 11.01 10.12 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.68 4.53-4.68 1.31 0 2.68.23 2.68.23v2.96h-1.51c-1.49 0-1.95.93-1.95 1.88v2.25h3.32l-.53 3.49h-2.79V24c5.74-.92 10.12-5.91 10.12-11.93z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 id="quickLinksTitle">Liens rapides</h3>
+                    <ul>
+                        <li><a href="#services" id="footerServices">Services</a></li>
+                        <li><a href="#gallery" id="footerGallery">Galerie</a></li>
+                        <li><a href="#rdv" id="footerRdv">Prendre RDV</a></li>
+                        <li><a href="#faq" id="footerFaq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 id="legalTitle">Informations légales</h3>
+                    <p id="copyright">© 2026 Cabinet Dentaire Dr Rtimi Mossaab - Tous droits réservés.</p>
+                    <p id="credits">Conception & développement : site web professionnel.</p>
+                    <p><a href="sitemap.xml">Sitemap</a> | <a href="robots.txt">Robots.txt</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <button type="button" id="pwaInstallBtn" class="pwa-install-btn">📲 <span id="pwaBtnText">Installer
+                        l'app</span></button>
+                <p id="footerBottomText">Site web optimisé pour mobile • Accessibilité • Confidentialité</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bibliothèques externes -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ar.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Script principal -->
+</body>
+
+</html>
