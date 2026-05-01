@@ -17,14 +17,13 @@
     <link rel="alternate" hreflang="x-default" href="https://rtimidental.tn/" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <script>
         if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register(new URL('sw.js', window.location.href))
-            .catch(err => console.error('SW failed', err));
-    });
-}
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register(new URL('/sw.js', window.location.origin)).catch(err => console.error('SW failed', err));
+            });
+        }
     </script>
 
     <!-- Open Graph -->
@@ -81,8 +80,8 @@
 
     <title>Cabinet Dentaire Dr Rtimi Mossaab | Dentiste à El Hamma, Gabès</title>
 
-    <link rel="icon" href="images/favicon-32.png" type="image/png">
-    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="icon" href="/images/favicon-32.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -560,7 +559,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <!-- Script principal -->
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>
